@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1">
+  <title>ikamdocs — Инвесторам</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060a12;
+      --bg-secondary: #0b1220;
+      --surface: rgba(17,24,39,0.62);
+      --surface-strong: #111827;
+      --surface-light: #ffffff;
+      --accent: #0ea5e9;
+      --accent-2: #38bdf8;
+      --danger: #fb7185;
+      --text: #f1f5f9;
+      --text-secondary: #a3b1c6;
+      --text-muted: #6b7a92;
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.14);
+      --light-bg: #f8fafc;
+      --light-text: #0f172a;
+      --light-text-secondary: #475569;
+      --light-border: #e2e8f0;
+      --radius: 12px;
+      --radius-lg: 18px;
+      --shadow: 0 18px 60px rgba(0,0,0,0.55);
+      --shadow-soft: 0 10px 30px rgba(2,132,199,0.14);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      width: 1440px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(6,10,18,0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav { display: flex; gap: 18px; align-items: center; }
+    nav a.link {
+      color: rgba(241,245,249,0.72);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 10px;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+    nav a.link:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      transition: 0.25s ease;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #0284c7 100%);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 10px 24px rgba(14,165,233,0.22);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 34px rgba(14,165,233,0.32); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .btn-secondary:hover { transform: translateY(-1px); border-color: rgba(14,165,233,0.55); }
+
+    /* Typography helpers */
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(56,189,248,0.95);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Cards */
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(135deg, rgba(14,165,233,0.10), transparent 55%);
+      opacity: 0.55;
+      pointer-events:none;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(14,165,233,0.50);
+      box-shadow: 0 16px 46px rgba(0,0,0,0.45);
+    }
+
+    /* Light cards */
+    .card-light {
+      background: var(--surface-light);
+      border: 1px solid var(--light-border);
+      border-radius: var(--radius-lg);
+      color: var(--light-text);
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      transition: 0.25s ease;
+    }
+    .card-light:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); border-color: rgba(2,132,199,0.25); }
+
+    /* Hero */
+    .hero-section {
+      position: relative;
+      padding: 88px 0 84px;
+      background:
+        radial-gradient(900px 420px at 55% -10%, rgba(14,165,233,0.18), transparent 70%),
+        radial-gradient(700px 320px at 20% 0%, rgba(56,189,248,0.12), transparent 70%),
+        var(--bg);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 14px 0 18px;
+    }
+    .hero p.lead {
+      font-size: 16px;
+      line-height: 1.65;
+      color: rgba(241,245,249,0.74);
+      max-width: 520px;
+    }
+    .hero-cta { display:flex; gap: 14px; align-items:center; margin-top: 28px; }
+    .integrations-row { display:flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+    .chip {
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 12px;
+      color: rgba(241,245,249,0.78);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: 0.2s ease;
+    }
+    .chip:hover { border-color: rgba(14,165,233,0.55); color: var(--text); }
+
+    /* Mock dashboard */
+    .mock-wrap {
+      position: relative;
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        linear-gradient(135deg, rgba(14,165,233,0.10) 0%, rgba(255,255,255,0.02) 35%, rgba(255,255,255,0.00) 100%);
+      box-shadow: var(--shadow);
+    }
+    .mock-glow {
+      position:absolute;
+      inset: -60px -80px -60px -80px;
+      background: radial-gradient(circle at 60% 40%, rgba(14,165,233,0.22), transparent 55%);
+      filter: blur(70px);
+      opacity: 0.85;
+      pointer-events:none;
+      z-index: 0;
+    }
+    .mock-inner { position: relative; z-index: 1; display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 12px; min-height: 240px; }
+    .mini { padding: 16px; border-radius: 14px; }
+    .kicker { font-size: 11px; color: rgba(241,245,249,0.56); letter-spacing: 0.08em; text-transform: uppercase; }
+    .metric { font-size: 20px; font-weight: 800; color: var(--accent-2); margin-top: 8px; }
+    .note { font-size: 12px; color: rgba(241,245,249,0.62); }
+
+    /* Sections */
+    section { position: relative; }
+    .section-pad { padding: 92px 0; }
+    .center { text-align: center; }
+    h2 {
+      font-size: 32px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+    .sub { margin-top: 10px; color: rgba(241,245,249,0.62); font-size: 15px; line-height: 1.65; }
+
+    /* Problem */
+    .problem {
+      background:
+        radial-gradient(700px 300px at 10% 30%, rgba(251,113,133,0.10), transparent 60%),
+        radial-gradient(700px 300px at 90% 20%, rgba(14,165,233,0.12), transparent 60%),
+        var(--bg-secondary);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .problem-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .problem-card {
+      padding: 22px 18px;
+      text-align: center;
+      color: rgba(241,245,249,0.72);
+      border-radius: 18px;
+      background: rgba(17,24,39,0.55);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      transition: 0.25s ease;
+    }
+    .problem-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(251,113,133,0.32);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    }
+    .problem-foot {
+      margin-top: 30px;
+      color: rgba(241,245,249,0.58);
+      font-size: 14px;
+    }
+
+    /* Light solution */
+    .light {
+      background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+      color: var(--light-text);
+    }
+    .light .sub { color: var(--light-text-secondary); }
+    .light h2 { color: var(--light-text); }
+
+    .solution-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 48px;
+    }
+    .solution-grid .wide { grid-column: span 2; }
+
+    /* How it works */
+    .how-start {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 640px;
+      margin: 32px auto 24px;
+    }
+    .start-card {
+      border: 1px solid rgba(14,165,233,0.55);
+      background: rgba(17,24,39,0.50);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+    }
+    .flow {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .flow .step {
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+    .flow .arrow { color: rgba(241,245,249,0.45); }
+    .flow .final {
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent) 0%, #0284c7 100%);
+      box-shadow: 0 16px 34px rgba(14,165,233,0.22);
+    }
+
+    /* Integrations (light) */
+    .integrations-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 44px;
+    }
+    .tag {
+      display:inline-flex;
+      padding: 7px 12px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      font-size: 13px;
+      color: #0f172a;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 56px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer p, footer a { color: rgba(241,245,249,0.55); font-size: 14px; }
+    footer h4 { font-weight: 650; margin-bottom: 12px; color: rgba(241,245,249,0.88); }
+    footer a { display:block; margin-bottom: 10px; }
+    footer a:hover { color: rgba(241,245,249,0.85); }
+
+    /* Small micro animation */
+    @media (prefers-reduced-motion: no-preference) {
+      .mock-wrap { animation: floaty 7s ease-in-out infinite; }
+      @keyframes floaty { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-6px);} }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/ikamdocs_v5_index.html"><img src="/images/logo.svg" alt="ikamdocs" height="40"></a>
+    <nav>
+      <a href="/ikamdocs_v5_index.html#how" class="link">Как это работает</a>
+      <a href="/ikamdocs_v5_index.html#pricing" class="link">Тарифы</a>
+      <a href="/architecture.html" class="link">Архитектура</a>
+      <a href="/ikamdocs_v5_index.html#roi" class="link">ROI</a>
+      <a href="/ikamdocs_v5_index.html#cases" class="link">Кейсы</a>
+      <a href="/login" class="link">Войти</a>
+      <a href="#" class="btn btn-primary">Запросить демо</a>
+    </nav>
+  </header>
+
+  
+  <section class="hero-section hero" style="padding-bottom: 40px;">
+    <div class="container">
+      <p class="section-label">Инвесторам</p>
+      <h1 style="max-width: 980px;">Ikamdocs — ядро данных для маркировки и товарной инфраструктуры</h1>
+      <p class="lead" style="max-width: 860px;">
+        Рынок усложняется: требования к маркировке и контролю данных растут, а компании продолжают жить на Excel и разрозненных справочниках.
+        Ikamdocs решает эту проблему через единое ядро, интеграции и контроль процессов.
+      </p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary">Запросить питч</a>
+        <a href="/architecture.html" class="btn btn-secondary">Посмотреть архитектуру</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem section-pad" style="border-top:none;">
+    <div class="container">
+      <div class="center">
+        <h2>Проблема рынка</h2>
+        <p class="sub">Регуляторика и масштабирование вскрывают слабые места в данных.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px;">
+        <div class="card" style="padding: 22px;">
+          <h3 style="font-size: 16px; margin-bottom: 8px; position:relative; z-index:1;">Фрагментация данных</h3>
+          <p class="note" style="position:relative; z-index:1; line-height:1.7;">Номенклатура распределена по отделам и системам, нет единого источника правды.</p>
+        </div>
+        <div class="card" style="padding: 22px;">
+          <h3 style="font-size: 16px; margin-bottom: 8px; position:relative; z-index:1;">Стоимость ошибок</h3>
+          <p class="note" style="position:relative; z-index:1; line-height:1.7;">Ошибки маркировки и несоответствия приводят к возвратам, штрафам и остановкам отгрузок.</p>
+        </div>
+        <div class="card" style="padding: 22px;">
+          <h3 style="font-size: 16px; margin-bottom: 8px; position:relative; z-index:1;">Масштабирование сетей</h3>
+          <p class="note" style="position:relative; z-index:1; line-height:1.7;">Рост SKU и точек требует единых правил, ролей, согласований и аудита.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light section-pad">
+    <div class="container">
+      <div class="center">
+        <h2>Решение</h2>
+        <p class="sub">Ikamdocs — инфраструктурная платформа для данных, маркировки и процессов.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 44px;">
+        <div class="card-light" style="padding: 22px;"><h3 style="font-size:16px;margin-bottom:8px;">Core data</h3><p style="color:var(--light-text-secondary);font-size:14px;line-height:1.7;">Единый каталог и стандарты данных.</p></div>
+        <div class="card-light" style="padding: 22px;"><h3 style="font-size:16px;margin-bottom:8px;">Compliance</h3><p style="color:var(--light-text-secondary);font-size:14px;line-height:1.7;">Контроль требований и статусов.</p></div>
+        <div class="card-light" style="padding: 22px;"><h3 style="font-size:16px;margin-bottom:8px;">Automation</h3><p style="color:var(--light-text-secondary);font-size:14px;line-height:1.7;">QR, поставки, версии, согласования.</p></div>
+        <div class="card-light" style="padding: 22px;"><h3 style="font-size:16px;margin-bottom:8px;">Integrations</h3><p style="color:var(--light-text-secondary);font-size:14px;line-height:1.7;">API-first, webhooks, ERP/1C.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container center">
+      <h2>Модель монетизации</h2>
+      <p class="sub">SaaS + enterprise. Рост через модули и внедрения.</p>
+
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 44px;">
+        <div class="card" style="padding: 22px;">
+          <div class="kicker">SaaS</div>
+          <h3 style="font-size: 18px; margin: 10px 0 8px; position:relative; z-index:1;">Подписка</h3>
+          <p class="note" style="position:relative; z-index:1; line-height:1.7;">Тарифы по пользователям, объёму данных и модулям.</p>
+        </div>
+        <div class="card" style="padding: 22px;">
+          <div class="kicker">Enterprise</div>
+          <h3 style="font-size: 18px; margin: 10px 0 8px; position:relative; z-index:1;">Лицензии и SLA</h3>
+          <p class="note" style="position:relative; z-index:1; line-height:1.7;">Приоритетная поддержка, безопасность, приватный контур.</p>
+        </div>
+        <div class="card" style="padding: 22px;">
+          <div class="kicker">Modules</div>
+          <h3 style="font-size: 18px; margin: 10px 0 8px; position:relative; z-index:1;">Доп. модули</h3>
+          <p class="note" style="position:relative; z-index:1; line-height:1.7;">Compliance, аналитика, AI-валидации, отраслевые пакеты.</p>
+        </div>
+      </div>
+
+      <div class="center" style="margin-top: 30px;">
+        <a href="#" class="btn btn-primary">Получить питч-дек</a>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 28px;">
+        <div>
+          <img src="/images/logo.svg" alt="ikamdocs" height="36">
+          <p style="margin-top: 10px;">Управление документами и номенклатурой с QR-кодами</p>
+        </div>
+
+        <div>
+          <h4>Навигация</h4>
+          <a href="/ikamdocs_v5_index.html#how">Как это работает</a>
+          <a href="/ikamdocs_v5_index.html#pricing">Тарифы</a>
+          <a href="/ikamdocs_v5_index.html#roi">ROI</a>
+        </div>
+
+        <div>
+          <h4>Компания</h4>
+          <a href="/ikamdocs_v5_index.html#top">О нас</a>
+          <a href="/architecture.html">Архитектура</a>
+        </div>
+
+        <div>
+          <h4>Документы</h4>
+          <a href="/privacy">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

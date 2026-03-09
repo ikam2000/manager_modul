@@ -1,0 +1,9 @@
+# ikamdocs — robots.txt
+User-agent: *
+Allow: /
+Disallow: /cabinet/
+Disallow: /login
+Disallow: /register
+Disallow: /api/
+
+Sitemap: https://ikamdocs.ru/sitemap.xml

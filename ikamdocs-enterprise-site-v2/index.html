@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ikamdocs — Enterprise product data platform</title>
+  <meta name="description" content="ikamdocs — enterprise-платформа для управления каталогом, поставщиками, документами, QR-маркировкой и интеграциями." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark"></span>
+        <span>ikamdocs</span>
+      </a>
+      <nav class="nav">
+        <a class="active" href="index.html">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="security.html">Security</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="platform.html">Product tour</a>
+        <a class="btn btn-primary" href="#contact">Request demo</a>
+        <button class="btn btn-secondary mobile-toggle" data-mobile-menu>Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="glow one" data-parallax></div>
+      <div class="glow two" data-parallax></div>
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker"><span class="eyebrow-dot"></span> Enterprise-grade master data, docs, sync and traceability</div>
+          <h1 class="display">A real product surface for your catalog operations.</h1>
+          <p class="lead">ikamdocs превращает хаотичные Excel-файлы, документы, данные поставщиков и маркетплейс-синхронизации в единый управляемый product data core. Визуально и по ощущению это должен быть SaaS уровня Stripe или Vercel — не лендинг, а полноценный enterprise narrative.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request demo</a>
+            <a class="btn btn-secondary" href="platform.html">Explore platform</a>
+          </div>
+          <div class="badge-line">
+            <span class="code">catalog.core</span>
+            <span class="code">supplier.intake</span>
+            <span class="code">docs.compliance</span>
+            <span class="code">sync.engine</span>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric"><strong>99.97%</strong><span>platform availability target for enterprise workflows</span></div>
+            <div class="metric"><strong>12×</strong><span>faster supplier onboarding with normalized intake flows</span></div>
+            <div class="metric"><strong>1 source</strong><span>of truth for catalog, documents, QR and downstream sync</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="browser-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <span class="browser-url">app.ikamdocs.ru / workspace / enterprise</span>
+          </div>
+          <div class="product-shell">
+            <aside class="sidebar">
+              <div class="sidebar-group">
+                <h4>Workspace</h4>
+                <div class="sidebar-item active"><span class="sidebar-badge"></span>Control center</div>
+                <div class="sidebar-item"><span class="sidebar-badge"></span>Catalog</div>
+                <div class="sidebar-item"><span class="sidebar-badge"></span>Suppliers</div>
+                <div class="sidebar-item"><span class="sidebar-badge"></span>Documents</div>
+                <div class="sidebar-item"><span class="sidebar-badge"></span>QR layer</div>
+              </div>
+              <div class="sidebar-group">
+                <h4>Operations</h4>
+                <div class="sidebar-item"><span class="sidebar-badge"></span>Integrations</div>
+                <div class="sidebar-item"><span class="sidebar-badge"></span>Sync policies</div>
+                <div class="sidebar-item"><span class="sidebar-badge"></span>Audit log</div>
+                <div class="sidebar-item"><span class="sidebar-badge"></span>Security</div>
+              </div>
+            </aside>
+            <div class="dashboard">
+              <div class="dashboard-top">
+                <div class="card">
+                  <h3>Catalog command center</h3>
+                  <p>Управляйте каталогом, версиями SKU, маппингом полей, статусами комплаенса и downstream-публикацией из одной операционной поверхности.</p>
+                  <div class="stat-grid" style="margin-top:16px;">
+                    <div class="stat"><strong>148,220</strong><span>active SKU objects</span></div>
+                    <div class="stat"><strong>1,942</strong><span>document links updated</span></div>
+                    <div class="stat"><strong>320 ms</strong><span>avg diff processing</span></div>
+                  </div>
+                </div>
+                <div class="card">
+                  <h4>Sync health</h4>
+                  <div class="pipeline">
+                    <div class="pipeline-row"><span class="pill">Ozon</span><div class="bar"><span style="width:94%"></span></div><span>94%</span></div>
+                    <div class="pipeline-row"><span class="pill">WB</span><div class="bar"><span style="width:91%"></span></div><span>91%</span></div>
+                    <div class="pipeline-row"><span class="pill">Shopify</span><div class="bar"><span style="width:99%"></span></div><span>99%</span></div>
+                    <div class="pipeline-row"><span class="pill">ERP</span><div class="bar"><span style="width:87%"></span></div><span>87%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="main-grid">
+                <div class="card">
+                  <h4>Latest product events</h4>
+                  <table class="table">
+                    <thead><tr><th>SKU</th><th>Change</th><th>Status</th><th>Channel</th></tr></thead>
+                    <tbody>
+                      <tr><td>LMN-AX-2041</td><td>Spec sheet version updated</td><td><span class="status ok">Healthy</span></td><td>Shopify</td></tr>
+                      <tr><td>QR-IND-4420</td><td>QR batch re-issued after diff</td><td><span class="status sync">Syncing</span></td><td>Warehouse</td></tr>
+                      <tr><td>WB-773-810</td><td>Supplier price drift detected</td><td><span class="status review">Review</span></td><td>Wildberries</td></tr>
+                      <tr><td>OZ-998-120</td><td>Document missing for compliance rule</td><td><span class="status review">Review</span></td><td>Ozon</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card">
+                  <h4>Projection latency</h4>
+                  <div class="spark">
+                    <div class="grid-lines"></div>
+                    <svg viewBox="0 0 300 170" preserveAspectRatio="none">
+                      <path d="M0 138C20 128 42 122 60 106C78 90 94 88 112 74C130 60 147 72 166 50C184 30 203 42 220 34C240 24 262 8 300 16" stroke="url(#g1)" stroke-width="5" fill="none" stroke-linecap="round"/>
+                      <defs>
+                        <linearGradient id="g1" x1="0" y1="0" x2="300" y2="0"><stop stop-color="#79A8FF"/><stop offset="1" stop-color="#67E8F9"/></linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <p style="margin-top:12px;">Policy-based sync keeps downstream channels updated without exposing raw master data directly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Animated platform architecture</div>
+            <h2 class="section-title">A living architecture, not a static diagram.</h2>
+          </div>
+          <p>Ниже собрана анимированная архитектура, в которой intake, catalog core, documents, QR и integrations выступают как реальные слои enterprise-продукта. Это создает ощущение зрелой платформы, а не просто набора маркетинговых блоков.</p>
+        </div>
+        <div class="architecture-board">
+          <div class="stack-col">
+            <div class="stack-card"><h4>Inputs</h4><p>Excel, CSV, supplier APIs, email parsers, ERP exports and manual uploads.</p></div>
+            <div class="stack-card"><h4>Normalization</h4><p>Mapping layer, schema rules, validation profiles and canonical models.</p></div>
+            <div class="stack-card"><h4>Controls</h4><p>Approvals, audit logging, change policies and versioned rollbacks.</p></div>
+          </div>
+          <div class="flow-bridge">
+            <div class="flow-header">
+              <div>
+                <strong>ikamdocs system graph</strong>
+                <p style="margin:6px 0 0; color: var(--muted)">Event-driven master data plane for products, docs and distribution.</p>
+              </div>
+              <span class="code">enterprise graph</span>
+            </div>
+            <svg class="flow-svg" viewBox="0 0 760 470">
+              <defs>
+                <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#79A8FF"/>
+                  <stop offset="100%" stop-color="#67E8F9"/>
+                </linearGradient>
+                <linearGradient id="lineGradient2" x1="1" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#9B8CFF"/>
+                  <stop offset="100%" stop-color="#67E8F9"/>
+                </linearGradient>
+              </defs>
+              <path data-animate-line d="M120 92 C220 92, 250 92, 318 92" stroke="url(#lineGradient)" stroke-width="3" fill="none" opacity=".8"/>
+              <path data-animate-line d="M442 92 C520 92, 560 92, 644 92" stroke="url(#lineGradient)" stroke-width="3" fill="none" opacity=".8"/>
+              <path data-animate-line d="M380 124 C380 170, 380 196, 380 240" stroke="url(#lineGradient2)" stroke-width="3" fill="none" opacity=".8"/>
+              <path data-animate-line d="M350 276 C286 302, 238 312, 152 340" stroke="url(#lineGradient2)" stroke-width="3" fill="none" opacity=".8"/>
+              <path data-animate-line d="M410 276 C496 304, 545 314, 626 340" stroke="url(#lineGradient)" stroke-width="3" fill="none" opacity=".8"/>
+              <path data-animate-line d="M128 356 C230 392, 286 394, 380 394 C474 394, 534 392, 632 356" stroke="url(#lineGradient)" stroke-width="3" fill="none" opacity=".55"/>
+
+              <g data-pulse><rect x="34" y="50" rx="22" width="128" height="84" fill="#10192F" stroke="#243458"/><text x="58" y="82" fill="#EEF2FF" font-size="18" font-family="Inter, sans-serif">Supplier</text><text x="58" y="106" fill="#8EA1CC" font-size="13" font-family="Inter, sans-serif">data intake</text></g>
+              <g data-pulse><rect x="318" y="50" rx="22" width="124" height="84" fill="#121D36" stroke="#31446B"/><text x="346" y="82" fill="#EEF2FF" font-size="18" font-family="Inter, sans-serif">Mapping</text><text x="346" y="106" fill="#8EA1CC" font-size="13" font-family="Inter, sans-serif">normalize</text></g>
+              <g data-pulse><rect x="598" y="50" rx="22" width="128" height="84" fill="#10192F" stroke="#243458"/><text x="620" y="82" fill="#EEF2FF" font-size="18" font-family="Inter, sans-serif">Channels</text><text x="620" y="106" fill="#8EA1CC" font-size="13" font-family="Inter, sans-serif">publishers</text></g>
+
+              <g data-pulse><rect x="286" y="206" rx="26" width="188" height="88" fill="#152344" stroke="#36568A"/><text x="332" y="244" fill="#EEF2FF" font-size="22" font-family="Inter, sans-serif">Catalog Core</text><text x="332" y="268" fill="#8EA1CC" font-size="13" font-family="Inter, sans-serif">SKU, attributes, versions</text></g>
+
+              <g data-pulse><rect x="58" y="318" rx="22" width="158" height="84" fill="#10192F" stroke="#243458"/><text x="90" y="350" fill="#EEF2FF" font-size="18" font-family="Inter, sans-serif">Documents</text><text x="90" y="374" fill="#8EA1CC" font-size="13" font-family="Inter, sans-serif">compliance layer</text></g>
+              <g data-pulse><rect x="550" y="318" rx="22" width="158" height="84" fill="#10192F" stroke="#243458"/><text x="596" y="350" fill="#EEF2FF" font-size="18" font-family="Inter, sans-serif">QR + Trace</text><text x="596" y="374" fill="#8EA1CC" font-size="13" font-family="Inter, sans-serif">warehouse ops</text></g>
+            </svg>
+          </div>
+          <div class="stage-col">
+            <div class="stage-card"><h4>Distribution layer</h4><p>Projection-based publishing to Ozon, Wildberries, Shopify, ERP and custom endpoints.</p></div>
+            <div class="stage-card"><h4>Security layer</h4><p>Tenant isolation, scoped API keys, signed webhooks, RLS and audit correlation IDs.</p></div>
+            <div class="stage-card"><h4>Observability</h4><p>Sync health, failure queues, retry pipelines and downstream latency visibility.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Interactive schema</div>
+            <h2 class="section-title">An interactive data model buyers can actually understand.</h2>
+          </div>
+          <p>Схема ниже связывает поставщиков, intake, каталог, документы, QR, sync engine, каналы и аудит. При наведении меняется explanation panel — это уже больше похоже на product education, чем на обычный корпоративный лендинг.</p>
+        </div>
+        <div class="data-map">
+          <div class="map-stage">
+            <svg class="map-svg" viewBox="0 0 1200 620" preserveAspectRatio="none">
+              <path d="M148 146 C260 146, 300 130, 382 148" stroke="rgba(121,168,255,.7)" stroke-width="3" fill="none" />
+              <path d="M490 146 C572 146, 626 146, 714 146" stroke="rgba(103,232,249,.7)" stroke-width="3" fill="none" />
+              <path d="M812 146 C886 146, 948 146, 1030 146" stroke="rgba(121,168,255,.7)" stroke-width="3" fill="none" />
+              <path d="M434 194 C434 258, 434 290, 434 350" stroke="rgba(155,140,255,.65)" stroke-width="3" fill="none" />
+              <path d="M770 194 C770 258, 770 290, 770 350" stroke="rgba(103,232,249,.65)" stroke-width="3" fill="none" />
+              <path d="M496 398 C594 434, 632 434, 708 398" stroke="rgba(121,168,255,.55)" stroke-width="3" fill="none" />
+              <path d="M1096 194 C1108 262, 1108 306, 1108 364" stroke="rgba(103,232,249,.45)" stroke-width="3" fill="none" />
+            </svg>
+            <div class="map-node" data-node="suppliers" style="left:46px; top:106px;"><small>Source</small><strong>Suppliers</strong><span>Profiles, INN, contracts</span></div>
+            <div class="map-node" data-node="intake" style="left:330px; top:106px;"><small>Pipeline</small><strong>Data Intake</strong><span>Excel, CSV, API, email</span></div>
+            <div class="map-node" data-node="catalog" style="left:644px; top:106px;"><small>Core</small><strong>Catalog Core</strong><span>SKU, attrs, versions</span></div>
+            <div class="map-node" data-node="sync" style="left:972px; top:106px;"><small>Runtime</small><strong>Sync Engine</strong><span>Policies, queues, retries</span></div>
+            <div class="map-node" data-node="documents" style="left:330px; top:318px;"><small>Compliance</small><strong>Documents</strong><span>Certificates and specs</span></div>
+            <div class="map-node" data-node="qr" style="left:660px; top:318px;"><small>Traceability</small><strong>QR Layer</strong><span>Print, scan, validate</span></div>
+            <div class="map-node" data-node="channels" style="left:972px; top:318px;"><small>Outputs</small><strong>Channels</strong><span>WB, Ozon, Shopify, ERP</span></div>
+            <div class="map-node" data-node="audit" style="left:924px; top:486px;"><small>Security</small><strong>Audit + RLS</strong><span>Tenant isolation and logs</span></div>
+          </div>
+          <div class="map-panel">
+            <div data-map-panel></div>
+            <div class="card">
+              <h3>Recent data events</h3>
+              <div class="mini-log">
+                <div class="log-item"><span>Supplier import normalized</span><span class="code">2m ago</span></div>
+                <div class="log-item"><span>Document revision attached to SKU</span><span class="code">9m ago</span></div>
+                <div class="log-item"><span>Projection published to Ozon</span><span class="code">16m ago</span></div>
+                <div class="log-item"><span>Scoped API key rotated</span><span class="code">1h ago</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split-hero">
+        <div>
+          <div class="kicker">Product UI</div>
+          <h2 class="section-title">UI blocks that make the platform feel fundable.</h2>
+          <p style="color:var(--muted); line-height:1.8;">Вместо абстрактных прямоугольников здесь полноценный product surface: control center, event tables, sync health, latency charts, document-state badges и catalog operations. Это тот уровень визуального правдоподобия, который нужен, чтобы сайт выглядел как SaaS на десятки миллионов долларов.</p>
+          <div class="grid-2" style="margin-top:22px;">
+            <div class="feature-card">
+              <div class="icon-chip">01</div>
+              <h3>Operational clarity</h3>
+              <p>Каждый экран раскрывает как данные живут в системе, а не просто продает идею на словах.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-chip">02</div>
+              <h3>Buyer education</h3>
+              <p>Сайт объясняет архитектуру и data flow продуктовым языком, понятным CTO, COO и Head of Ops.</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel" style="padding:18px;">
+          <img src="assets/mock-dashboard.svg" alt="ikamdocs UI mockup" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Expanded pages</div>
+            <h2 class="section-title">Platform, Integrations and Security now feel like real product sections.</h2>
+          </div>
+          <p>Дополнительные страницы собраны так, чтобы каждая решала свою роль в enterprise-продаже: Platform объясняет продукт, Integrations снимает технические риски, Security повышает доверие procurement и IT.</p>
+        </div>
+        <div class="grid-3">
+          <a class="feature-card" href="platform.html">
+            <div class="icon-chip">P</div>
+            <h3>Platform</h3>
+            <p>Модули продукта, ядро данных, orchestration, interface layers и roadmap-подача на уровне реального SaaS.</p>
+            <ul class="feature-list"><li>Animated product architecture</li><li>Control center UI</li><li>Module-by-module explanation</li></ul>
+          </a>
+          <a class="feature-card" href="integrations.html">
+            <div class="icon-chip">I</div>
+            <h3>Integrations</h3>
+            <p>Data contracts, API design, imports, outbound sync, marketplace channels и partner ecosystem.</p>
+            <ul class="feature-list"><li>Marketplace connectors</li><li>Supplier intake contracts</li><li>Projection-based exports</li></ul>
+          </a>
+          <a class="feature-card" href="security.html">
+            <div class="icon-chip">S</div>
+            <h3>Security</h3>
+            <p>Enterprise security posture, audit trail, role isolation, secrets management и compliance storytelling.</p>
+            <ul class="feature-list"><li>Tenant isolation and RLS</li><li>Audit-friendly logs</li><li>Procurement-ready narratives</li></ul>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="panel" style="padding:34px;">
+          <div class="grid-2">
+            <div>
+              <div class="kicker">Request demo</div>
+              <h2 class="section-title" style="max-width:12ch;">Turn ikamdocs into a category-looking enterprise brand.</h2>
+              <p style="color:var(--muted); line-height:1.8;">Эта версия уже собрана как полноценный enterprise front-end concept: сильнее по визуалу, объясняет архитектуру и выглядит как продукт, а не как промо-страница.</p>
+            </div>
+            <div class="card">
+              <h3>What this version already includes</h3>
+              <div class="mini-log">
+                <div class="log-item"><span>Animated platform architecture</span><span class="status ok">Ready</span></div>
+                <div class="log-item"><span>Interactive schema explorer</span><span class="status ok">Ready</span></div>
+                <div class="log-item"><span>Product UI surfaces</span><span class="status ok">Ready</span></div>
+                <div class="log-item"><span>Platform / Integrations / Security pages</span><span class="status ok">Ready</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo"><span class="logo-mark"></span><span>ikamdocs</span></div>
+        <p>Enterprise product data platform for catalog, compliance and distribution workflows.</p>
+      </div>
+      <div class="footer-nav">
+        <a href="platform.html">Platform</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="security.html">Security</a>
+      </div>
+      <div>© <span data-year></span> ikamdocs</div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

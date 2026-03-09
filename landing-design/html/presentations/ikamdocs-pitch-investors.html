@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
+  <link rel="manifest" href="/favicons/site.webmanifest"/>
+  <title>ikamdocs — Презентация для инвесторов</title>
+  <meta name="description" content="Инвестиционная презентация ikamdocs: B2B SaaS для управления номенклатурой и маркировкой." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0f17;
+      --surface: #111827;
+      --accent: #0ea5e9;
+      --accent-2: #38bdf8;
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .slide {
+      min-height: 100vh;
+      padding: 48px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      page-break-after: always;
+      border-bottom: 1px solid var(--border);
+    }
+    .slide:last-child { page-break-after: avoid; }
+    .kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h1 { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 20px; line-height: 1.15; }
+    h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 24px; }
+    .lead { font-size: 18px; color: var(--text-secondary); max-width: 640px; line-height: 1.6; }
+    .gradient { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+    .card { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+    .metric { font-size: 32px; font-weight: 800; color: var(--accent); margin: 8px 0 4px; }
+    .metric-label { font-size: 13px; color: var(--text-secondary); }
+    ul { list-style: none; }
+    li { padding: 8px 0; font-size: 15px; color: var(--text-secondary); position: relative; padding-left: 20px; }
+    li::before { content: "-"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .logo { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 24px; }
+    @media print {
+      body { background: #fff; color: #111; }
+      .slide { min-height: 297mm; padding: 32px 48px; page-break-after: always; border: none; }
+      .kicker { color: #0284c7; }
+      .lead, .card p, li { color: #475569; }
+      .card { background: #f8fafc; border-color: #e2e8f0; }
+      .metric { color: #0284c7; }
+      .gradient { color: #0284c7; -webkit-text-fill-color: #0284c7; }
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <div class="logo">ikamdocs</div>
+  <p class="kicker">Pitch Deck - Для инвесторов</p>
+  <h1>Единое ядро данных для маркировки и товарной инфраструктуры</h1>
+  <p class="lead">B2B SaaS-платформа для управления номенклатурой, QR-маркировкой и документооборотом. Рынок усложняется — ikamdocs решает проблему разрозненных данных.</p>
+  <p style="margin-top: 48px; font-size: 14px; color: var(--text-secondary);">ikam2000@yandex.ru · ikamdocs.ru</p>
+  <p style="margin-top: 12px; font-size: 11px; color: var(--text-secondary); opacity: 0.7;">Экспорт в PDF: Файл → Печать → Сохранить как PDF</p>
+</div>
+<div class="slide">
+  <p class="kicker">Проблема рынка</p>
+  <h2>Разрозненные данные создают скрытые издержки</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Фрагментация</h3>
+      <p>Номенклатура распределена по отделам и системам. Нет централизованной системы учёта информации.</p>
+    </div>
+    <div class="card">
+      <h3>Стоимость ошибок</h3>
+      <p>Ошибки маркировки — возвраты, штрафы, остановки отгрузок. Регуляторика ужесточается.</p>
+    </div>
+    <div class="card">
+      <h3>Масштабирование</h3>
+      <p>Рост SKU и точек требует единых правил, ролей, согласований и аудита.</p>
+    </div>
+  </div>
+  <p style="margin-top: 32px; font-size: 15px; color: var(--text-secondary);">Компании продолжают жить на Excel и ручном хаосе. Требования Честного знака и ЭДО усиливают давление.</p>
+</div>
+<div class="slide">
+  <p class="kicker">Решение</p>
+  <h2>ikamdocs — инфраструктурная платформа</h2>
+  <div class="grid-2">
+    <div class="card"><h3>Core Data</h3><p>Единый каталог и стандарты данных. Номенклатура, поставщики, категории.</p></div>
+    <div class="card"><h3>Compliance</h3><p>Контроль требований, статусов маркировки и версий SKU.</p></div>
+    <div class="card"><h3>Automation</h3><p>QR-генерация, поставки, согласования, документооборот.</p></div>
+    <div class="card"><h3>Integrations</h3><p>API-first, webhooks. 1С, ERP, Zapier, Make, n8n.</p></div>
+  </div>
+  <p style="margin-top: 24px; font-size: 14px; color: var(--text-secondary);">Multi-tenant архитектура, RLS, audit log. Enterprise-ready с первого дня.</p>
+</div>
+<div class="slide">
+  <p class="kicker">Бизнес-модель</p>
+  <h2>Монетизация</h2>
+  <div class="grid-3">
+    <div class="card"><p class="kicker">SaaS</p><h3>Подписка</h3><p>Тарифы по пользователям, объёму данных и модулям. Starter, Business, Enterprise.</p></div>
+    <div class="card"><p class="kicker">Enterprise</p><h3>Лицензии и SLA</h3><p>Приоритетная поддержка, безопасность, приватный контур, on-prem по запросу.</p></div>
+    <div class="card"><p class="kicker">Modules</p><h3>Доп. модули</h3><p>Compliance, аналитика, AI-валидации, отраслевые пакеты.</p></div>
+  </div>
+</div>
+<div class="slide">
+  <p class="kicker">Платформа в цифрах</p>
+  <h2>ikamdocs сегодня</h2>
+  <div class="grid-3" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="card"><div class="metric">2+ млн</div><div class="metric-label">SKU под управлением</div></div>
+    <div class="card"><div class="metric">99.9%</div><div class="metric-label">доступность</div></div>
+    <div class="card"><div class="metric">10+</div><div class="metric-label">типовых интеграций</div></div>
+    <div class="card"><div class="metric">0</div><div class="metric-label">потерь данных</div></div>
+  </div>
+</div>
+<div class="slide">
+  <p class="kicker">Roadmap</p>
+  <h2>Развитие платформы</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Реализовано</h3>
+      <ul><li>Централизованный каталог</li><li>QR-маркировка и печать</li><li>RLS и аудит</li><li>API и webhooks</li><li>Модуль поставок</li></ul>
+    </div>
+    <div class="card">
+      <h3>В разработке</h3>
+      <ul><li>AI-проверка данных</li><li>Предиктивная аналитика</li><li>Автосопоставление SKU</li><li>Расширенный compliance</li></ul>
+    </div>
+  </div>
+</div>
+<div class="slide">
+  <p class="kicker">Следующий шаг</p>
+  <h1>Обсудим детали</h1>
+  <p class="lead">Полный питч-дек, финансовые проекции и демо — по запросу.</p>
+  <p style="margin-top: 32px; font-size: 16px;">ikam2000@yandex.ru</p>
+  <p style="font-size: 14px; color: var(--text-secondary);">ikamdocs.ru</p>
+</div>
+</body>
+</html>

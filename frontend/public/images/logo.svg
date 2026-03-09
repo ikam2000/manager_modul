@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <!-- Document stack icon - modern, minimal -->
+  <rect x="4" y="4" width="14" height="28" rx="4" fill="url(#logoGrad)"/>
+  <circle cx="11" cy="12" r="2" fill="#060a12"/>
+  <rect x="6" y="18" width="10" height="2" rx="1" fill="#060a12" opacity="0.4"/>
+  <rect x="6" y="23" width="8" height="2" rx="1" fill="#060a12" opacity="0.3"/>
+</svg>

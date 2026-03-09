@@ -1,0 +1,50 @@
+<header>
+<a href="/"><img alt="ikamdocs" height="40" width="auto" src="/images/logo.png" style="display:block;object-fit:contain"/></a>
+<nav class="header-nav-desktop">
+<a class="link" href="/platform">Платформа</a>
+<a class="link" href="/integrations">Интеграции</a>
+<a class="link" href="/security">Безопасность</a>
+<a class="link" href="/use-cases">Сценарии</a>
+<a class="link" href="/api">API</a>
+<a class="link" href="/pricing">Тарифы</a>
+<a class="link link-login" href="/login">Войти</a>
+<a class="btn btn-primary btn-header" href="/request-demo.html">Запросить демо</a>
+</nav>
+<details class="header-nav-mobile">
+<summary class="header-burger" aria-label="Открыть меню">
+  <span></span><span></span><span></span>
+</summary>
+<div class="header-nav-dropdown">
+<a class="link" href="/platform">Платформа</a>
+<a class="link" href="/integrations">Интеграции</a>
+<a class="link" href="/security">Безопасность</a>
+<a class="link" href="/use-cases">Сценарии</a>
+<a class="link" href="/api">API</a>
+<a class="link" href="/pricing">Тарифы</a>
+<a class="link link-login" href="/login">Войти</a>
+<a class="btn btn-primary btn-header" href="/request-demo.html" style="justify-content:center;margin-top:8px;">Запросить демо</a>
+</div>
+</details>
+<style>
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 40px;height:72px;position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(6,8,22,0.68);border-bottom:1px solid rgba(255,255,255,0.06);}
+header>a{flex-shrink:0;}
+.header-nav-desktop{display:flex;gap:10px;align-items:center;flex-shrink:1;min-width:0;}
+.header-nav-desktop .link{color:rgba(154,167,199,0.95);font-size:14px;font-weight:500;padding:10px 14px;border-radius:999px;transition:0.2s;white-space:nowrap;}
+.header-nav-desktop .link:hover{color:#eef2ff;background:rgba(255,255,255,0.05)}
+.header-nav-desktop .link-login{color:#79a8ff;font-weight:600}
+.btn-header{padding:12px 18px;font-size:14px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-weight:600;background:linear-gradient(135deg,rgba(121,168,255,0.95),rgba(103,232,249,0.95));color:#06101f;border:1px solid transparent;box-shadow:0 16px 40px rgba(103,232,249,0.18)}
+.btn-header:hover{transform:translateY(-1px);box-shadow:0 18px 44px rgba(103,232,249,0.22)}
+summary.header-burger::-webkit-details-marker,summary.header-burger::marker{display:none;}
+summary.header-burger{list-style:none;}
+.header-burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);border-radius:10px;}
+.header-burger span{display:block;width:100%;height:2px;background:rgba(241,245,249,0.9);border-radius:1px;transition:transform .2s,opacity .2s;}
+.header-nav-mobile[open] .header-burger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.header-nav-mobile[open] .header-burger span:nth-child(2){opacity:0;}
+.header-nav-mobile[open] .header-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.header-nav-dropdown{position:fixed;inset:0;top:56px;height:calc(100vh - 56px);height:calc(100dvh - 56px);min-height:400px;padding:24px 20px max(32px,env(safe-area-inset-bottom));background:rgba(6,10,18,0.98);backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:4px;z-index:25;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;border:none;}
+.header-nav-dropdown a{display:block;padding:14px 24px;font-size:16px;border-radius:10px;color:rgba(241,245,249,0.9);}
+.header-nav-dropdown a:hover{background:rgba(255,255,255,0.06);}
+@media(max-width:640px){.header-nav-desktop{display:none!important;}header{padding:0 16px;height:56px}header img{height:32px}}
+@media(min-width:641px){.header-nav-mobile{display:none!important;}}
+</style>
+</header>

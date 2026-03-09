@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1">
+  <title>ikamdocs — Design for Figma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060a12;
+      --bg-secondary: #0c1220;
+      --surface: #111827;
+      --surface-elevated: #1e2d48;
+      --accent: #0ea5e9;
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: #1e293b;
+      --light-bg: #f8fafc;
+      --light-surface: #ffffff;
+      --light-text: #0f172a;
+      --light-text-secondary: #475569;
+      --light-border: #e2e8f0;
+      --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      width: 1440px;
+      min-height: 100vh;
+    }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--accent) 0%, #0284c7 100%);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .btn-secondary {
+      display: inline-flex;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #334155;
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+    .card-light { background: var(--light-surface); border-color: var(--light-border); color: var(--light-text); }
+  </style>
+</head>
+<body>
+  <!-- Frame 1: Header -->
+  <header style="background: rgba(8,12,20,0.9); border-bottom: 1px solid var(--border); padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between;">
+    <img src="images/logo.png" alt="ikamdocs" height="40">
+    <nav style="display: flex; gap: 1.25rem;">
+      <a href="#" style="color: var(--text-secondary); font-size: 15px;">Как это работает</a>
+      <a href="#" style="color: var(--text-secondary); font-size: 15px;">Тарифы</a>
+      <a href="#" style="color: var(--text-secondary); font-size: 15px;">О компании</a>
+      <a href="#" style="color: var(--text-secondary); font-size: 15px;">Войти</a>
+      <a href="#" class="btn-primary">Запросить демо</a>
+    </nav>
+  </header>
+
+  <!-- Frame 2: Hero -->
+  <section class="hero-section" style="padding: 100px 0 80px; position: relative; background: var(--bg);">
+    <div class="container" style="text-align: center;">
+      <p class="section-label" style="margin-bottom: 12px;">B2B SaaS для номенклатуры и маркировки</p>
+      <h1 style="font-size: 3rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 24px;">Управляйте номенклатурой и маркировкой в одной системе</h1>
+      <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto;">Автоматизация каталога, QR-маркировки, поставок и документооборота без Excel и ручного хаоса.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 40px;">
+        <a href="#" class="btn-primary">Запросить демо</a>
+        <a href="#" class="btn-secondary">Попробовать бесплатно</a>
+      </div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">Интеграции</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <span style="padding: 12px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;">1С</span>
+        <span style="padding: 12px 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">ERP</span>
+        <span style="padding: 12px 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">CRM</span>
+        <span style="padding: 12px 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">ЭДО</span>
+        <span style="padding: 12px 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">API</span>
+      </div>
+    </div>
+    <!-- Dashboard mock -->
+    <div style="max-width: 900px; margin: 40px auto 0; padding: 20px; background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, transparent 100%); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;">
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 12px; min-height: 200px;">
+        <div class="card" style="grid-row: span 2; padding: 16px; border-radius: 12px;">
+          <p style="font-size: 11px; color: var(--text-muted);">НОМЕНКЛАТУРА</p>
+          <div style="display: flex; align-items: flex-end; gap: 6px; height: 80px; margin: 12px 0;">
+            <div style="flex: 1; height: 72%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.4)); border-radius: 4px;"></div>
+            <div style="flex: 1; height: 45%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.4)); border-radius: 4px;"></div>
+            <div style="flex: 1; height: 88%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.4)); border-radius: 4px;"></div>
+            <div style="flex: 1; height: 62%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.4)); border-radius: 4px;"></div>
+            <div style="flex: 1; height: 95%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.4)); border-radius: 4px;"></div>
+          </div>
+          <p style="font-size: 18px; font-weight: 700; color: var(--accent);">2 847</p>
+          <p style="font-size: 10px; color: var(--text-muted);">позиций в каталоге</p>
+        </div>
+        <div class="card" style="padding: 14px; border-radius: 12px;">
+          <p style="font-size: 10px; color: var(--text-muted);">QR-МАРКИРОВКА</p>
+          <div style="display: flex; gap: 4px; margin: 8px 0;">
+            <div style="flex: 1; height: 24px; background: var(--accent); border-radius: 2px;"></div>
+            <div style="flex: 1; height: 24px; background: rgba(14,165,233,0.2); border-radius: 2px;"></div>
+            <div style="flex: 1; height: 24px; background: var(--accent); border-radius: 2px;"></div>
+          </div>
+          <p style="font-size: 16px; font-weight: 700; color: var(--accent);">94%</p>
+        </div>
+        <div class="card" style="padding: 14px; border-radius: 12px;">
+          <p style="font-size: 10px; color: var(--text-muted);">ПОСТАВКИ</p>
+          <div style="width: 48px; height: 48px; border: 3px solid var(--accent); border-radius: 50%; border-top-color: transparent; margin: 8px 0;"></div>
+          <p style="font-size: 16px; font-weight: 700; color: var(--accent);">156</p>
+        </div>
+        <div class="card" style="padding: 14px; border-radius: 12px; grid-column: span 2;">
+          <p style="font-size: 10px; color: var(--text-muted);">ТРЕНД · 7 ДНЕЙ</p>
+          <div style="display: flex; align-items: flex-end; gap: 3px; height: 36px;">
+            <div style="flex: 1; height: 30%; background: rgba(14,165,233,0.5); border-radius: 2px;"></div>
+            <div style="flex: 1; height: 45%; background: rgba(14,165,233,0.5); border-radius: 2px;"></div>
+            <div style="flex: 1; height: 38%; background: rgba(14,165,233,0.5); border-radius: 2px;"></div>
+            <div style="flex: 1; height: 55%; background: rgba(14,165,233,0.5); border-radius: 2px;"></div>
+            <div style="flex: 1; height: 50%; background: rgba(14,165,233,0.5); border-radius: 2px;"></div>
+            <div style="flex: 1; height: 70%; background: rgba(14,165,233,0.5); border-radius: 2px;"></div>
+            <div style="flex: 1; height: 65%; background: rgba(14,165,233,0.5); border-radius: 2px;"></div>
+          </div>
+          <p style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;">Дашборд · Аналитика</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frame 3: Проблема -->
+  <section style="padding: 88px 0; background: var(--bg-secondary);">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 1.75rem; font-weight: 600; margin-bottom: 48px;">Разрозненные данные — скрытый убыток компании</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14;">
+        <div class="card" style="padding: 20px; text-align: center; color: var(--text-secondary);">Дубли товаров</div>
+        <div class="card" style="padding: 20px; text-align: center; color: var(--text-secondary);">Ошибки в маркировке</div>
+        <div class="card" style="padding: 20px; text-align: center; color: var(--text-secondary);">Несоответствие данных</div>
+        <div class="card" style="padding: 20px; text-align: center; color: var(--text-secondary);">Ручная работа в Excel</div>
+      </div>
+      <p style="text-align: center; margin-top: 36px; color: var(--text-muted);">Хаотичные данные → <strong style="color: var(--accent);">ikamdocs</strong> как единое ядро</p>
+    </div>
+  </section>
+
+  <!-- Frame 4: Решение (светлая) -->
+  <section style="padding: 100px 0; background: var(--light-bg); color: var(--light-text);">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 1.75rem; font-weight: 600; margin-bottom: 12px;">Единое ядро данных для всей компании</h2>
+      <p style="text-align: center; color: var(--light-text-secondary); margin-bottom: 56px;">ikamdocs — системный контроль номенклатуры и документооборота</p>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20;">
+        <div class="card card-light" style="padding: 28px;"><h3 style="font-size: 18px; margin-bottom: 8px;">Централизованный каталог</h3><p style="font-size: 14px; color: var(--light-text-secondary);">Единый источник правды по номенклатуре</p></div>
+        <div class="card card-light" style="padding: 28px;"><h3 style="font-size: 18px; margin-bottom: 8px;">Управление SKU</h3><p style="font-size: 14px; color: var(--light-text-secondary);">Полный контроль над кодами и атрибутами</p></div>
+        <div class="card card-light" style="padding: 28px; grid-column: span 2;"><h3 style="font-size: 18px; margin-bottom: 8px;">Автоматическая генерация QR</h3><p style="font-size: 14px; color: var(--light-text-secondary);">Маркировка в один клик</p></div>
+        <div class="card card-light" style="padding: 28px;"><h3 style="font-size: 18px; margin-bottom: 8px;">Контроль маркировки</h3><p style="font-size: 14px; color: var(--light-text-secondary);">Соответствие «Честному знаку»</p></div>
+        <div class="card card-light" style="padding: 28px;"><h3 style="font-size: 18px; margin-bottom: 8px;">Управление поставками</h3><p style="font-size: 14px; color: var(--light-text-secondary);">От заказа до приёмки</p></div>
+        <div class="card card-light" style="padding: 28px; grid-column: span 2;"><h3 style="font-size: 18px; margin-bottom: 8px;">Multi-tenant архитектура</h3><p style="font-size: 14px; color: var(--light-text-secondary);">Enterprise-grade надёжность</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frame 5: Как это работает -->
+  <section style="padding: 100px 0;">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 1.75rem; font-weight: 600; margin-bottom: 48px;">Как это работает</h2>
+      <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">Всё начинается с подключения ваших систем или загрузки данных</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 560px; margin: 0 auto 32px;">
+        <div class="card" style="padding: 24px; text-align: center; border: 2px solid var(--accent);"><p style="font-weight: 600;">Интеграция с системами</p><p style="font-size: 12px; color: var(--text-muted);">старт</p></div>
+        <div class="card" style="padding: 24px; text-align: center; border: 2px solid var(--accent);"><p style="font-weight: 600;">Импорт данных</p><p style="font-size: 12px; color: var(--text-muted);">старт</p></div>
+      </div>
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <span class="card" style="padding: 12px 20px;">Стандартизация</span>
+        <span style="color: var(--text-muted);">→</span>
+        <span class="card" style="padding: 12px 20px;">Присвоение кодов</span>
+        <span style="color: var(--text-muted);">→</span>
+        <span style="padding: 14px 24px; background: linear-gradient(135deg, var(--accent), #0284c7); color: #fff; border-radius: 12px; font-weight: 700;">Контроль и аналитика</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frame 6: Интеграции -->
+  <section style="padding: 96px 0; background: var(--light-bg);">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 1.75rem; font-weight: 600; margin-bottom: 12px;">Интеграции</h2>
+      <p style="text-align: center; color: var(--light-text-secondary); margin-bottom: 48px;">Подключаемся к вашей инфраструктуре без боли.</p>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20;">
+        <div class="card card-light" style="padding: 24px;"><h3 style="font-size: 16px; margin-bottom: 12px;">Системы учёта</h3><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px; margin-right: 8px;">1С</span><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">ERP</span><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">Excel</span></div>
+        <div class="card card-light" style="padding: 24px;"><h3 style="font-size: 16px; margin-bottom: 12px;">Работа с файлами</h3><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">PDF</span><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">JPEG</span><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">PNG</span></div>
+        <div class="card card-light" style="padding: 24px;"><h3 style="font-size: 16px; margin-bottom: 12px;">ЭДО и маркировка</h3><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">ЭДО</span><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">Честный знак</span></div>
+        <div class="card card-light" style="padding: 24px;"><h3 style="font-size: 16px; margin-bottom: 12px;">Аналитика и API</h3><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">Дашборды</span><span style="padding: 6px 12px; background: var(--light-bg); border-radius: 8px; font-size: 13px;">Webhooks</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frame 7: Footer -->
+  <footer style="padding: 3rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem;">
+        <div>
+          <img src="images/logo.png" alt="ikamdocs" height="36">
+          <p style="color: var(--text-muted); font-size: 14px; margin-top: 8px;">Управление документами и номенклатурой с QR-кодами</p>
+        </div>
+        <div><h4 style="font-weight: 600; margin-bottom: 12px;">Продукт</h4><a href="#" style="display: block; color: var(--text-muted); font-size: 14px;">Как это работает</a><a href="#" style="display: block; color: var(--text-muted); font-size: 14px;">Тарифы</a></div>
+        <div><h4 style="font-weight: 600; margin-bottom: 12px;">Компания</h4><a href="#" style="display: block; color: var(--text-muted); font-size: 14px;">О нас</a></div>
+        <div><h4 style="font-weight: 600; margin-bottom: 12px;">Документы</h4><a href="#" style="display: block; color: var(--text-muted); font-size: 14px;">Политика конфиденциальности</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

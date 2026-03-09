@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1440, initial-scale=1" name="viewport"/>
+<title>ikamdocs — Enterprise landing</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --bg: #060a12;
+      --bg-secondary: #0b1220;
+      --surface: rgba(17,24,39,0.62);
+      --surface-strong: #111827;
+      --surface-light: #ffffff;
+      --accent: #0ea5e9;
+      --accent-2: #38bdf8;
+      --danger: #fb7185;
+      --text: #f1f5f9;
+      --text-secondary: #a3b1c6;
+      --text-muted: #6b7a92;
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.14);
+      --light-bg: #f8fafc;
+      --light-text: #0f172a;
+      --light-text-secondary: #475569;
+      --light-border: #e2e8f0;
+      --radius: 12px;
+      --radius-lg: 18px;
+      --shadow: 0 18px 60px rgba(0,0,0,0.55);
+      --shadow-soft: 0 10px 30px rgba(2,132,199,0.14);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      width: 1440px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(6,10,18,0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav { display: flex; gap: 18px; align-items: center; }
+    nav a.link {
+      color: rgba(241,245,249,0.72);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 10px;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+    nav a.link:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      transition: 0.25s ease;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #0284c7 100%);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 10px 24px rgba(14,165,233,0.22);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 34px rgba(14,165,233,0.32); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .btn-secondary:hover { transform: translateY(-1px); border-color: rgba(14,165,233,0.55); }
+
+    /* Typography helpers */
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(56,189,248,0.95);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Cards */
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(135deg, rgba(14,165,233,0.10), transparent 55%);
+      opacity: 0.55;
+      pointer-events:none;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(14,165,233,0.50);
+      box-shadow: 0 16px 46px rgba(0,0,0,0.45);
+    }
+
+    /* Light cards */
+    .card-light {
+      background: var(--surface-light);
+      border: 1px solid var(--light-border);
+      border-radius: var(--radius-lg);
+      color: var(--light-text);
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      transition: 0.25s ease;
+    }
+    .card-light:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); border-color: rgba(2,132,199,0.25); }
+
+    /* Hero */
+    .hero-section {
+      position: relative;
+      padding: 88px 0 84px;
+      background:
+        radial-gradient(900px 420px at 55% -10%, rgba(14,165,233,0.18), transparent 70%),
+        radial-gradient(700px 320px at 20% 0%, rgba(56,189,248,0.12), transparent 70%),
+        var(--bg);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 14px 0 18px;
+    }
+    .hero p.lead {
+      font-size: 16px;
+      line-height: 1.65;
+      color: rgba(241,245,249,0.74);
+      max-width: 520px;
+    }
+    .hero-cta { display:flex; gap: 14px; align-items:center; margin-top: 28px; }
+    .integrations-row { display:flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+    .chip {
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 12px;
+      color: rgba(241,245,249,0.78);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: 0.2s ease;
+    }
+    .chip:hover { border-color: rgba(14,165,233,0.55); color: var(--text); }
+
+    /* Mock dashboard */
+    .mock-wrap {
+      position: relative;
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        linear-gradient(135deg, rgba(14,165,233,0.10) 0%, rgba(255,255,255,0.02) 35%, rgba(255,255,255,0.00) 100%);
+      box-shadow: var(--shadow);
+    }
+    .mock-glow {
+      position:absolute;
+      inset: -60px -80px -60px -80px;
+      background: radial-gradient(circle at 60% 40%, rgba(14,165,233,0.22), transparent 55%);
+      filter: blur(70px);
+      opacity: 0.85;
+      pointer-events:none;
+      z-index: 0;
+    }
+    .mock-inner { position: relative; z-index: 1; display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 12px; min-height: 240px; }
+    .mini { padding: 16px; border-radius: 14px; }
+    .kicker { font-size: 11px; color: rgba(241,245,249,0.56); letter-spacing: 0.08em; text-transform: uppercase; }
+    .metric { font-size: 20px; font-weight: 800; color: var(--accent-2); margin-top: 8px; }
+    .note { font-size: 12px; color: rgba(241,245,249,0.62); }
+
+    /* Sections */
+    section { position: relative; }
+    .section-pad { padding: 92px 0; }
+    .center { text-align: center; }
+    h2 {
+      font-size: 32px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+    .sub { margin-top: 10px; color: rgba(241,245,249,0.62); font-size: 15px; line-height: 1.65; }
+
+    /* Problem */
+    .problem {
+      background:
+        radial-gradient(700px 300px at 10% 30%, rgba(251,113,133,0.10), transparent 60%),
+        radial-gradient(700px 300px at 90% 20%, rgba(14,165,233,0.12), transparent 60%),
+        var(--bg-secondary);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .problem-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .problem-card {
+      padding: 22px 18px;
+      text-align: center;
+      color: rgba(241,245,249,0.72);
+      border-radius: 18px;
+      background: rgba(17,24,39,0.55);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      transition: 0.25s ease;
+    }
+    .problem-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(251,113,133,0.32);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    }
+    .problem-foot {
+      margin-top: 30px;
+      color: rgba(241,245,249,0.58);
+      font-size: 14px;
+    }
+
+    /* Light solution */
+    .light {
+      background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+      color: var(--light-text);
+    }
+    .light .sub { color: var(--light-text-secondary); }
+    .light h2 { color: var(--light-text); }
+
+    .solution-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 48px;
+    }
+    .solution-grid .wide { grid-column: span 2; }
+
+    /* How it works */
+    .how-start {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 640px;
+      margin: 32px auto 24px;
+    }
+    .start-card {
+      border: 1px solid rgba(14,165,233,0.55);
+      background: rgba(17,24,39,0.50);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+    }
+    .flow {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .flow .step {
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+    .flow .arrow { color: rgba(241,245,249,0.45); }
+    .flow .final {
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent) 0%, #0284c7 100%);
+      box-shadow: 0 16px 34px rgba(14,165,233,0.22);
+    }
+
+    /* Integrations (light) */
+    .integrations-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 44px;
+    }
+    .tag {
+      display:inline-flex;
+      padding: 7px 12px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      font-size: 13px;
+      color: #0f172a;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 56px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer p, footer a { color: rgba(241,245,249,0.55); font-size: 14px; }
+    footer h4 { font-weight: 650; margin-bottom: 12px; color: rgba(241,245,249,0.88); }
+    footer a { display:block; margin-bottom: 10px; }
+    footer a:hover { color: rgba(241,245,249,0.85); }
+
+    /* Small micro animation */
+    @media (prefers-reduced-motion: no-preference) {
+      .mock-wrap { animation: floaty 7s ease-in-out infinite; }
+      @keyframes floaty { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-6px);} }
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<a href="/ikamdocs_v5_index.html"><img alt="ikamdocs" height="40" src="/images/logo.svg"/></a>
+<nav>
+<a class="link" href="#how">Как это работает</a>
+<a class="link" href="#pricing">Тарифы</a>
+<a class="link" href="/architecture.html">Архитектура</a>
+<a class="link" href="#roi">ROI</a>
+<a class="link" href="#cases">Кейсы</a>
+<a class="link" href="#security">Безопасность</a>
+<a class="link" href="/login">Войти</a>
+<a class="btn btn-primary" href="#">Запросить демо</a>
+</nav>
+</header>
+<!-- Hero -->
+<section class="hero-section hero" id="top">
+<div class="container hero-grid">
+<div>
+<p class="section-label">B2B SaaS для номенклатуры и маркировки</p>
+<h1>Единое ядро для <span class="gradient-text">номенклатуры</span> и маркировки</h1>
+<p class="lead">Автоматизация каталога, QR‑маркировки, поставок и документооборота без Excel и ручного хаоса. Данные под контролем. Процессы стандартизированы.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="#">Запросить демо</a>
+<a class="btn btn-secondary" href="#">Попробовать бесплатно</a>
+</div>
+<p style="margin-top:18px; font-size:12px; color: rgba(241,245,249,0.45);">Интеграции</p>
+<div class="integrations-row">
+<span class="chip">1С</span>
+<span class="chip">ERP</span>
+<span class="chip">CRM</span>
+<span class="chip">ЭДО</span>
+<span class="chip">API</span>
+</div>
+</div>
+<div class="mock-wrap">
+<div class="mock-glow"></div>
+<div class="mock-inner">
+<div class="card mini" style="grid-row: span 2;">
+<div class="kicker">Номенклатура</div>
+<div style="display:flex; align-items:flex-end; gap:7px; height: 98px; margin: 14px 0 10px;">
+<div style="flex:1; height:72%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.25)); border-radius: 6px;"></div>
+<div style="flex:1; height:44%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.25)); border-radius: 6px;"></div>
+<div style="flex:1; height:88%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.25)); border-radius: 6px;"></div>
+<div style="flex:1; height:62%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.25)); border-radius: 6px;"></div>
+<div style="flex:1; height:95%; background: linear-gradient(180deg, var(--accent), rgba(14,165,233,0.25)); border-radius: 6px;"></div>
+</div>
+<div class="metric">2 847</div>
+<div class="note">позиций в каталоге</div>
+</div>
+<div class="card mini">
+<div class="kicker">QR‑маркировка</div>
+<div style="display:flex; gap:6px; margin: 10px 0 8px;">
+<div style="flex:1; height: 26px; background: rgba(14,165,233,0.90); border-radius: 5px;"></div>
+<div style="flex:1; height: 26px; background: rgba(14,165,233,0.20); border-radius: 5px;"></div>
+<div style="flex:1; height: 26px; background: rgba(14,165,233,0.90); border-radius: 5px;"></div>
+</div>
+<div class="metric">94%</div>
+<div class="note">валидных кодов</div>
+</div>
+<div class="card mini">
+<div class="kicker">Поставки</div>
+<div style="width: 52px; height: 52px; border: 3px solid rgba(56,189,248,0.95); border-radius: 50%; border-top-color: transparent; margin: 10px 0 8px;"></div>
+<div class="metric">156</div>
+<div class="note">за неделю</div>
+</div>
+<div class="card mini" style="grid-column: span 2;">
+<div class="kicker">Тренд · 7 дней</div>
+<div style="display:flex; align-items:flex-end; gap:4px; height: 42px; margin-top: 10px;">
+<div style="flex:1; height: 30%; background: rgba(14,165,233,0.45); border-radius: 5px;"></div>
+<div style="flex:1; height: 45%; background: rgba(14,165,233,0.45); border-radius: 5px;"></div>
+<div style="flex:1; height: 38%; background: rgba(14,165,233,0.45); border-radius: 5px;"></div>
+<div style="flex:1; height: 55%; background: rgba(14,165,233,0.45); border-radius: 5px;"></div>
+<div style="flex:1; height: 50%; background: rgba(14,165,233,0.45); border-radius: 5px;"></div>
+<div style="flex:1; height: 70%; background: rgba(14,165,233,0.45); border-radius: 5px;"></div>
+<div style="flex:1; height: 65%; background: rgba(14,165,233,0.45); border-radius: 5px;"></div>
+</div>
+<div class="note" style="margin-top: 10px;">Дашборд · Аналитика</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem -->
+<section class="problem section-pad">
+<div class="container">
+<div class="center">
+<h2>Разрозненные данные — скрытый убыток компании</h2>
+<p class="sub">Потери возникают там, где нет единого источника правды и контроля изменений.</p>
+</div>
+<div class="problem-grid">
+<div class="problem-card">Дубли товаров</div>
+<div class="problem-card">Ошибки в маркировке</div>
+<div class="problem-card">Несоответствие данных</div>
+<div class="problem-card">Ручная работа в Excel</div>
+</div>
+<p class="problem-foot center">Хаотичные данные → <strong class="gradient-text">ikamdocs</strong> как единое ядро</p>
+</div>
+</section>
+<!-- Solution (light) -->
+<section class="light section-pad">
+<div class="container">
+<div class="center">
+<h2>Единое ядро данных для всей компании</h2>
+<p class="sub">ikamdocs — системный контроль номенклатуры, маркировки и связанных процессов.</p>
+</div>
+<div class="solution-grid">
+<div class="card-light" style="padding: 28px;">
+<h3 style="font-size: 18px; margin-bottom: 8px;">Централизованный каталог</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary);">Единый источник правды по номенклатуре и атрибутам.</p>
+</div>
+<div class="card-light" style="padding: 28px;">
+<h3 style="font-size: 18px; margin-bottom: 8px;">Управление SKU</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary);">Контроль кодов, статусов, версий и правил заполнения.</p>
+</div>
+<div class="card-light wide" style="padding: 28px;">
+<h3 style="font-size: 18px; margin-bottom: 8px;">Автоматическая генерация QR</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary);">Маркировка и печать кодов в один клик по вашим шаблонам.</p>
+</div>
+<div class="card-light" style="padding: 28px;">
+<h3 style="font-size: 18px; margin-bottom: 8px;">Контроль маркировки</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary);">Соответствие требованиям и снижение ошибок при отгрузке.</p>
+</div>
+<div class="card-light" style="padding: 28px;">
+<h3 style="font-size: 18px; margin-bottom: 8px;">Управление поставками</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary);">От заказа до приёмки: статусы, документы, контроль.</p>
+</div>
+<div class="card-light wide" style="padding: 28px;">
+<h3 style="font-size: 18px; margin-bottom: 8px;">Multi‑tenant архитектура</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary);">Разграничение доступа, роли, аудит изменений, масштабирование.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How it works -->
+<section class="section-pad" id="how">
+<div class="container">
+<div class="center">
+<h2>Как это работает</h2>
+<p class="sub">Всё начинается с подключения ваших систем или загрузки данных.</p>
+</div>
+<div class="how-start">
+<div class="start-card">
+<p style="font-weight: 700; margin-bottom: 6px;">Интеграция с системами</p>
+<p style="font-size: 12px; color: rgba(241,245,249,0.55);">старт</p>
+</div>
+<div class="start-card">
+<p style="font-weight: 700; margin-bottom: 6px;">Импорт данных</p>
+<p style="font-size: 12px; color: rgba(241,245,249,0.55);">старт</p>
+</div>
+</div>
+<div class="flow">
+<span class="step">Стандартизация</span>
+<span class="arrow">→</span>
+<span class="step">Присвоение кодов</span>
+<span class="arrow">→</span>
+<span class="final">Контроль и аналитика</span>
+</div>
+<div class="center" style="margin-top: 34px;">
+<a class="btn btn-primary" href="#">Запросить демо</a>
+</div>
+</div>
+</section>
+<!-- Integrations (light) -->
+<section class="light section-pad">
+<div class="container">
+<div class="center">
+<h2>Интеграции</h2>
+<p class="sub">Подключаемся к вашей инфраструктуре без боли.</p>
+</div>
+<div class="integrations-grid">
+<div class="card-light" style="padding: 24px;">
+<h3 style="font-size: 16px; margin-bottom: 12px;">Системы учёта</h3>
+<span class="tag">1С</span><span class="tag">ERP</span><span class="tag">Excel</span>
+</div>
+<div class="card-light" style="padding: 24px;">
+<h3 style="font-size: 16px; margin-bottom: 12px;">Работа с файлами</h3>
+<span class="tag">PDF</span><span class="tag">JPEG</span><span class="tag">PNG</span>
+</div>
+<div class="card-light" style="padding: 24px;">
+<h3 style="font-size: 16px; margin-bottom: 12px;">ЭДО и маркировка</h3>
+<span class="tag">ЭДО</span><span class="tag">Честный знак</span>
+</div>
+<div class="card-light" style="padding: 24px;">
+<h3 style="font-size: 16px; margin-bottom: 12px;">Аналитика и API</h3>
+<span class="tag">Дашборды</span><span class="tag">Webhooks</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Cases -->
+<section class="section-pad" id="cases" style="background: var(--bg); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
+<div class="container">
+<div class="center">
+<h2>Кейсы и сценарии внедрения</h2>
+<p class="sub">Типовые результаты после наведения порядка в данных и процессов маркировки.</p>
+</div>
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px;">
+<div class="card" style="padding: 22px;">
+<div class="kicker">Производство</div>
+<h3 style="font-size: 18px; margin: 10px 0 8px; position:relative; z-index:1;">Единый каталог SKU</h3>
+<p class="note" style="position:relative; z-index:1; line-height:1.6;">Убрали дубли, стандартизировали атрибуты и правила заполнения. Версии номенклатуры под контролем.</p>
+<div style="display:flex; gap:10px; margin-top: 14px; position:relative; z-index:1;">
+<div style="flex:1; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker" style="opacity:.9;">Снижение ошибок</div>
+<div class="metric" style="font-size:18px;">до 90%</div>
+</div>
+<div style="flex:1; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker" style="opacity:.9;">Скорость изменений</div>
+<div class="metric" style="font-size:18px;">x2</div>
+</div>
+</div>
+</div>
+<div class="card" style="padding: 22px;">
+<div class="kicker">Импорт / Дистрибуция</div>
+<h3 style="font-size: 18px; margin: 10px 0 8px; position:relative; z-index:1;">Маркировка без ручного хаоса</h3>
+<p class="note" style="position:relative; z-index:1; line-height:1.6;">Генерация QR, контроль статусов, сопроводительные документы и сверки — в одном контуре.</p>
+<div style="display:flex; gap:10px; margin-top: 14px; position:relative; z-index:1;">
+<div style="flex:1; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker" style="opacity:.9;">Экономия времени</div>
+<div class="metric" style="font-size:18px;">-30–50%</div>
+</div>
+<div style="flex:1; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker" style="opacity:.9;">Валидность кодов</div>
+<div class="metric" style="font-size:18px;">до 99%</div>
+</div>
+</div>
+</div>
+<div class="card" style="padding: 22px;">
+<div class="kicker">Сеть / Франшиза</div>
+<h3 style="font-size: 18px; margin: 10px 0 8px; position:relative; z-index:1;">Единые правила для всех точек</h3>
+<p class="note" style="position:relative; z-index:1; line-height:1.6;">Роли, доступы, аудит и контроль изменений. Данные синхронизируются по всей сети.</p>
+<div style="display:flex; gap:10px; margin-top: 14px; position:relative; z-index:1;">
+<div style="flex:1; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker" style="opacity:.9;">Прозрачность</div>
+<div class="metric" style="font-size:18px;">+100%</div>
+</div>
+<div style="flex:1; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker" style="opacity:.9;">Согласования</div>
+<div class="metric" style="font-size:18px;">быстрее</div>
+</div>
+</div>
+</div>
+</div>
+<div class="center" style="margin-top: 34px;">
+<a class="btn btn-secondary" href="#">Запросить примеры кейсов</a>
+</div>
+</div>
+</section>
+<!-- Security -->
+<section class="section-pad problem" id="security" style="border-top: none;">
+<div class="container">
+<div class="center">
+<h2>Безопасность и контроль</h2>
+<p class="sub">Данные под защитой. Доступы разграничены. Любое изменение фиксируется.</p>
+</div>
+<div style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 18px; margin-top: 44px; align-items: stretch;">
+<div class="card" style="padding: 24px;">
+<div class="kicker">Enterprise-grade</div>
+<h3 style="font-size: 18px; margin: 10px 0 8px; position:relative; z-index:1;">RLS, роли, аудит изменений</h3>
+<p class="note" style="position:relative; z-index:1; line-height:1.7;">
+            Поддержка multi-tenant модели: каждая компания изолирована, пользователи видят только свои данные.
+            Роли и права на уровне сущностей и действий, журнал операций и история версий.
+          </p>
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; position:relative; z-index:1;">
+<div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker">RLS</div>
+<div class="note">изоляция данных</div>
+</div>
+<div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker">Audit log</div>
+<div class="note">кто и что изменил</div>
+</div>
+<div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<div class="kicker">Versions</div>
+<div class="note">история SKU</div>
+</div>
+</div>
+</div>
+<div class="card" style="padding: 24px;">
+<div class="kicker">Практика</div>
+<h3 style="font-size: 18px; margin: 10px 0 12px; position:relative; z-index:1;">Контроль процессов</h3>
+<div style="display:grid; gap: 10px; position:relative; z-index:1;">
+<div style="padding: 14px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<strong style="display:block; margin-bottom: 4px;">Валидация данных</strong>
+<span class="note">правила заполнения, обязательные поля, форматы</span>
+</div>
+<div style="padding: 14px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<strong style="display:block; margin-bottom: 4px;">Разрешительные цепочки</strong>
+<span class="note">согласования перед публикацией/печатью</span>
+</div>
+<div style="padding: 14px; border-radius: 14px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);">
+<strong style="display:block; margin-bottom: 4px;">Экспорт и API</strong>
+<span class="note">контроль интеграций и источников данных</span>
+</div>
+</div>
+<div style="margin-top: 16px; position:relative; z-index:1;">
+<a class="btn btn-primary" href="#" style="width:100%;">Запросить описание безопасности</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing -->
+<section class="light section-pad" id="pricing">
+<div class="container">
+<div class="center">
+<h2>Тарифы</h2>
+<p class="sub">Выберите уровень под объём данных, число пользователей и требования к безопасности.</p>
+</div>
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; align-items: stretch;">
+<div class="card-light" style="padding: 26px; border-radius: 20px;">
+<div style="font-size: 12px; letter-spacing: .12em; font-weight: 700; color: #0284c7; text-transform: uppercase;">Starter</div>
+<h3 style="font-size: 20px; margin: 10px 0 8px;">Для команды</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary); line-height: 1.6;">Базовое управление номенклатурой и импорт данных.</p>
+<div style="margin: 16px 0 14px; font-size: 34px; font-weight: 800;">—</div>
+<ul style="list-style:none; padding:0; margin:0; display:grid; gap: 10px; color: var(--light-text-secondary); font-size: 14px;">
+<li>Каталог номенклатуры</li>
+<li>Импорт/экспорт (Excel/CSV)</li>
+<li>Роли и доступы (база)</li>
+<li>Поддержка по email</li>
+</ul>
+<div style="margin-top: 18px;">
+<a class="btn btn-secondary" href="#" style="width:100%;">Запросить условия</a>
+</div>
+</div>
+<div class="card-light" style="padding: 26px; border-radius: 20px; border: 2px solid rgba(2,132,199,0.28); box-shadow: 0 18px 42px rgba(2,132,199,0.12);">
+<div style="font-size: 12px; letter-spacing: .12em; font-weight: 700; color: #0284c7; text-transform: uppercase;">Business</div>
+<h3 style="font-size: 20px; margin: 10px 0 8px;">Для процессов</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary); line-height: 1.6;">Маркировка, QR, поставки и контроль версий.</p>
+<div style="margin: 16px 0 14px; font-size: 34px; font-weight: 800;">—</div>
+<ul style="list-style:none; padding:0; margin:0; display:grid; gap: 10px; color: var(--light-text-secondary); font-size: 14px;">
+<li>QR-маркировка и шаблоны печати</li>
+<li>Управление поставками</li>
+<li>История изменений и версии SKU</li>
+<li>Интеграции (API/Webhooks)</li>
+</ul>
+<div style="margin-top: 18px;">
+<a class="btn btn-primary" href="#" style="width:100%;">Запросить демо</a>
+</div>
+</div>
+<div class="card-light" style="padding: 26px; border-radius: 20px;">
+<div style="font-size: 12px; letter-spacing: .12em; font-weight: 700; color: #0284c7; text-transform: uppercase;">Enterprise</div>
+<h3 style="font-size: 20px; margin: 10px 0 8px;">Для инфраструктуры</h3>
+<p style="font-size: 14px; color: var(--light-text-secondary); line-height: 1.6;">RLS, аудит, кастомные интеграции и SLA.</p>
+<div style="margin: 16px 0 14px; font-size: 34px; font-weight: 800;">—</div>
+<ul style="list-style:none; padding:0; margin:0; display:grid; gap: 10px; color: var(--light-text-secondary); font-size: 14px;">
+<li>Multi-tenant + расширенные роли</li>
+<li>Audit log и отчёты</li>
+<li>SLA и приоритетная поддержка</li>
+<li>On-prem / приватный контур (опц.)</li>
+</ul>
+<div style="margin-top: 18px;">
+<a class="btn btn-secondary" href="#" style="width:100%;">Обсудить внедрение</a>
+</div>
+</div>
+</div>
+<p class="center" style="margin-top: 18px; color: var(--light-text-secondary); font-size: 13px;">
+        Цены зависят от объёма данных, интеграций и требований безопасности.
+      </p>
+</div>
+</section>
+<!-- Platform Numbers -->
+<section class="section-pad" id="stats" style="background: var(--bg); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
+<div class="container center">
+<h2>ikamdocs в цифрах</h2>
+<p class="sub">Инфраструктурная платформа для управления данными и маркировкой.</p>
+<div style="display:grid; grid-template-columns: repeat(4,1fr); gap:22px; margin-top:44px;">
+<div class="card" style="padding:28px;">
+<div class="metric">2+ млн</div>
+<div class="note">SKU под управлением</div>
+</div>
+<div class="card" style="padding:28px;">
+<div class="metric">99.9%</div>
+<div class="note">доступность системы</div>
+</div>
+<div class="card" style="padding:28px;">
+<div class="metric">10+</div>
+<div class="note">типовых интеграций</div>
+</div>
+<div class="card" style="padding:28px;">
+<div class="metric">0</div>
+<div class="note">потерь данных</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Architecture -->
+<section class="section-pad problem" id="arch">
+<div class="container center">
+<h2>Архитектура платформы</h2>
+<p class="sub">Единое ядро данных с API-слоем и разграничением доступа.</p>
+<div style="margin-top:50px; display:grid; gap:28px;">
+<div style="display:flex; justify-content:center; gap:20px;">
+<div class="card" style="padding:18px 28px;">ERP</div>
+<div class="card" style="padding:18px 28px;">1C</div>
+<div class="card" style="padding:18px 28px;">Excel</div>
+</div>
+<div class="card" style="padding:30px;">
+<h3 style="font-size:20px;">IKAMDOCS CORE</h3>
+<p class="note">Каталог · Маркировка · Версии · RLS · Audit</p>
+</div>
+<div style="display:flex; justify-content:center; gap:20px;">
+<div class="card" style="padding:18px 28px;">QR</div>
+<div class="card" style="padding:18px 28px;">Поставки</div>
+<div class="card" style="padding:18px 28px;">Аналитика</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ROI Calculator -->
+<section class="light section-pad" id="roi">
+<div class="container">
+<div class="center">
+<h2>ROI-калькулятор</h2>
+<p class="sub">Оцените потенциальную экономию от стандартизации номенклатуры и контроля маркировки.</p>
+</div>
+<div style="max-width:980px; margin:46px auto 0; display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; align-items:start;">
+<div class="card-light" style="padding: 24px; border-radius: 20px;">
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+<label style="display:grid; gap:6px;">
+<span style="font-weight:700;">Количество SKU</span>
+<input id="sku" min="0" style="padding:12px 14px; border-radius:12px; border:1px solid var(--light-border); outline:none;" type="number" value="5000"/>
+</label>
+<label style="display:grid; gap:6px;">
+<span style="font-weight:700;">Пользователи</span>
+<input id="users" min="0" style="padding:12px 14px; border-radius:12px; border:1px solid var(--light-border); outline:none;" type="number" value="10"/>
+</label>
+<label style="display:grid; gap:6px;">
+<span style="font-weight:700;">Ошибок в месяц</span>
+<input id="errors" min="0" style="padding:12px 14px; border-radius:12px; border:1px solid var(--light-border); outline:none;" type="number" value="120"/>
+</label>
+<label style="display:grid; gap:6px;">
+<span style="font-weight:700;">Время на исправление (мин)</span>
+<input id="minutes" min="0" style="padding:12px 14px; border-radius:12px; border:1px solid var(--light-border); outline:none;" type="number" value="25"/>
+</label>
+<label style="display:grid; gap:6px;">
+<span style="font-weight:700;">Стоимость часа (₽)</span>
+<input id="hourCost" min="0" style="padding:12px 14px; border-radius:12px; border:1px solid var(--light-border); outline:none;" type="number" value="1200"/>
+</label>
+<label style="display:grid; gap:6px;">
+<span style="font-weight:700;">Штрафы/возвраты в месяц (₽)</span>
+<input id="penalties" min="0" style="padding:12px 14px; border-radius:12px; border:1px solid var(--light-border); outline:none;" type="number" value="50000"/>
+</label>
+</div>
+<div style="display:flex; gap: 10px; margin-top: 16px;">
+<button class="btn btn-primary" id="calcBtn" style="border:none; cursor:pointer; width: 100%;">Рассчитать</button>
+<a class="btn btn-secondary" href="#" style="width: 100%; text-align:center;">Запросить расчёт</a>
+</div>
+<p style="margin-top: 10px; color: var(--light-text-secondary); font-size: 13px; line-height: 1.6;">
+            Модель расчёта: потери времени + прямые потери (штрафы/возвраты). Экономия оценивается диапазоном 60–90% в зависимости от зрелости процессов.
+          </p>
+</div>
+<div class="card-light" style="padding: 24px; border-radius: 20px; border:2px solid rgba(2,132,199,0.22);">
+<div style="font-size: 12px; letter-spacing: .12em; font-weight: 800; color: #0284c7; text-transform: uppercase;">Результат</div>
+<div style="margin-top: 12px; display:grid; gap: 12px;">
+<div style="padding:14px; border-radius:14px; background:#f1f5f9; border:1px solid #e2e8f0;">
+<div style="font-weight:800; font-size: 13px; color:#0f172a;">Потери в месяц</div>
+<div id="lossMonth" style="font-weight:900; font-size: 26px; color:#0f172a;">—</div>
+</div>
+<div style="padding:14px; border-radius:14px; background:#f1f5f9; border:1px solid #e2e8f0;">
+<div style="font-weight:800; font-size: 13px; color:#0f172a;">Потери в год</div>
+<div id="lossYear" style="font-weight:900; font-size: 26px; color:#0f172a;">—</div>
+</div>
+<div style="padding:16px; border-radius:16px; background: linear-gradient(135deg, rgba(14,165,233,0.10), rgba(56,189,248,0.10)); border:1px solid rgba(2,132,199,0.22);">
+<div style="font-weight:900; font-size: 13px; color:#0f172a;">Потенциальная экономия</div>
+<div id="savings" style="font-weight:950; font-size: 28px; color:#0f172a;">—</div>
+<div id="savingsNote" style="margin-top:6px; color:#334155; font-size: 13px;">Диапазон (60–90%)</div>
+</div>
+</div>
+<div style="margin-top: 14px; color: var(--light-text-secondary); font-size: 13px; line-height: 1.6;">
+            Итог зависит от качества исходных данных, интеграций и количества точек/складов.
+          </div>
+</div>
+</div>
+</div>
+<script>
+      function formatRub(n) {
+        const x = Math.round(n);
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
+      }
+
+      function calc() {
+        const errors = Number(document.getElementById('errors').value || 0);
+        const minutes = Number(document.getElementById('minutes').value || 0);
+        const hourCost = Number(document.getElementById('hourCost').value || 0);
+        const penalties = Number(document.getElementById('penalties').value || 0);
+
+        const hours = (errors * minutes) / 60.0;
+        const timeLoss = hours * hourCost;
+        const lossMonth = timeLoss + penalties;
+        const lossYear = lossMonth * 12;
+
+        const saveMin = lossYear * 0.60;
+        const saveMax = lossYear * 0.90;
+
+        document.getElementById('lossMonth').textContent = formatRub(lossMonth);
+        document.getElementById('lossYear').textContent = formatRub(lossYear);
+        document.getElementById('savings').textContent = formatRub(saveMin) + ' — ' + formatRub(saveMax);
+      }
+
+      document.getElementById('calcBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        calc();
+      });
+
+      // initial calc
+      calc();
+    </script>
+</section>
+<!-- Roadmap -->
+<section class="section-pad" id="roadmap">
+<div class="container center">
+<h2>Roadmap развития</h2>
+<p class="sub">ikamdocs — развивающаяся инфраструктурная платформа.</p>
+<div style="display:grid; grid-template-columns: repeat(2,1fr); gap:22px; margin-top:44px;">
+<div class="card" style="padding:24px;">
+<h3 style="margin-bottom:12px;">Уже реализовано</h3>
+<ul class="note" style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
+<li>✔ Централизованный каталог</li>
+<li>✔ QR-маркировка</li>
+<li>✔ RLS и аудит</li>
+<li>✔ API-интеграции</li>
+</ul>
+</div>
+<div class="card" style="padding:24px;">
+<h3 style="margin-bottom:12px;">В разработке</h3>
+<ul class="note" style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
+<li>• AI-проверка данных</li>
+<li>• Предиктивная аналитика</li>
+<li>• Автосопоставление SKU</li>
+<li>• Расширенный compliance-модуль</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<div class="container">
+<div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 28px;">
+<div>
+<img alt="ikamdocs" height="36" src="/images/logo.svg"/>
+<p style="margin-top: 10px;">Управление документами и номенклатурой с QR‑кодами</p>
+</div>
+<div>
+<h4>Продукт</h4>
+<a href="/ikamdocs_v5_index.html#how">Как это работает</a>
+<a href="/ikamdocs_v5_index.html#pricing">Тарифы</a>
+</div>
+<div>
+<h4>Компания</h4>
+<a href="/architecture.html">Архитектура</a>
+</div>
+<div>
+<h4>Документы</h4>
+<a href="/privacy">Политика конфиденциальности</a>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>

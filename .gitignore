@@ -1,0 +1,47 @@
+# Локальные настройки (секреты) — не попадут в GitHub
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Локальные данные
+*.db
+*.sqlite
+storage/
+backend/storage/
+backend/logs/
+
+# Сборка фронта (генерируется при npm run build)
+frontend/dist/
+
+# Система и редактор
+.DS_Store
+.cursor/
+
+# Внутренние документы (сертификаты, паспорта) — не в репозиторий
+frontend/docs/
+
+# Архивы и тяжёлые файлы (при необходимости убери *.mp4)
+*.zip
+*.mp4

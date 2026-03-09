@@ -1,0 +1,841 @@
+{
+  "version": 1,
+  "exported_at": "2026-02-28T17:23:45.221440",
+  "plans": [
+    {
+      "id": 2,
+      "name": "Старт",
+      "price_monthly": 1500000,
+      "price_yearly": 15000000,
+      "max_users": 5,
+      "is_active": true
+    },
+    {
+      "id": 3,
+      "name": "Бизнес",
+      "price_monthly": 3000000,
+      "price_yearly": 30000000,
+      "max_users": 15,
+      "is_active": true
+    },
+    {
+      "id": 4,
+      "name": "Про",
+      "price_monthly": 5000000,
+      "price_yearly": 50000000,
+      "max_users": 50,
+      "is_active": true
+    }
+  ],
+  "company": {
+    "name": "ООО Демо-Компания",
+    "logo_url": "logos/company_1.png",
+    "inn": "7707123456",
+    "kpp": null,
+    "ogrn": null,
+    "legal_address": "г. Москва, ул. Демонстрационная, д. 1",
+    "bank_name": null,
+    "bank_bik": null,
+    "bank_account": null,
+    "bank_corr": null,
+    "payment_purpose": null,
+    "is_active": true,
+    "created_at": "2026-02-26T08:27:50.251986",
+    "updated_at": "2026-02-26T21:54:08.196332",
+    "plan_id": null,
+    "_export_id": 1
+  },
+  "users": [
+    {
+      "id": 2,
+      "email": "demo@ikamdocs.ru",
+      "hashed_password": "$2b$12$5vGgRIirPVduhyTKrJ2aWepgx3wRdeZyp9XAA7ft8JdOiGU4BLfAG",
+      "full_name": "Демо Администратор",
+      "is_active": true,
+      "role": "admin",
+      "avatar_url": "avatars/user_2.png",
+      "created_at": "2026-02-26T08:27:50.502949",
+      "updated_at": "2026-02-26T21:53:45.721529",
+      "impersonated_by": null
+    },
+    {
+      "id": 3,
+      "email": "user@demo.ikamdocs.ru",
+      "hashed_password": "$2b$12$Sbt1EARe1TmuRl7xIWnfcuWv4kZ5ky0z3Ugup4lR3sc0/9ljzrJ2O",
+      "full_name": "Демо Пользователь",
+      "is_active": true,
+      "role": "user",
+      "avatar_url": null,
+      "created_at": "2026-02-26T08:27:50.754357",
+      "updated_at": "2026-02-26T08:27:50.754362",
+      "impersonated_by": null
+    },
+    {
+      "id": 4,
+      "email": "test@1.ru",
+      "hashed_password": "$2b$12$jvjqOcm1oZU5AR2uEAnGU.mgLetP/uSvAQyWjPjJ1l4RBMh12uICG",
+      "full_name": "test",
+      "is_active": false,
+      "role": "user",
+      "avatar_url": null,
+      "created_at": "2026-02-27T16:52:42.746755",
+      "updated_at": "2026-02-27T16:53:15.065961",
+      "impersonated_by": null
+    }
+  ],
+  "user_companies": [
+    {
+      "user_id": 2,
+      "company_id": 1,
+      "role": "admin",
+      "can_impersonate": true
+    },
+    {
+      "user_id": 3,
+      "company_id": 1,
+      "role": "user",
+      "can_impersonate": false
+    },
+    {
+      "user_id": 4,
+      "company_id": 1,
+      "role": "user",
+      "can_impersonate": false
+    }
+  ],
+  "subscriptions": [
+    {
+      "plan_id": 1,
+      "status": "active",
+      "started_at": "2026-02-26T08:27:50.757117",
+      "expires_at": "2027-02-26T08:27:50.756692"
+    }
+  ],
+  "categories": [
+    {
+      "_export_id": 1,
+      "name": "Измерительное оборудование"
+    },
+    {
+      "_export_id": 2,
+      "name": "КИПиА"
+    },
+    {
+      "_export_id": 3,
+      "name": "Сертификация и метрология"
+    },
+    {
+      "_export_id": 4,
+      "name": "Материалы"
+    }
+  ],
+  "subcategories": [
+    {
+      "_export_id": 1,
+      "_category_export_id": 1,
+      "name": "Манометры"
+    },
+    {
+      "_export_id": 2,
+      "_category_export_id": 2,
+      "name": "КИПиА JOYO"
+    },
+    {
+      "_export_id": 3,
+      "_category_export_id": 2,
+      "name": "Обогреваемые шкафы"
+    },
+    {
+      "_export_id": 4,
+      "_category_export_id": 2,
+      "name": "Прочее"
+    },
+    {
+      "_export_id": 5,
+      "_category_export_id": 4,
+      "name": "Сертификаты материалов"
+    }
+  ],
+  "suppliers": [
+    {
+      "_export_id": 1,
+      "name": "ООО МанометрСервис",
+      "phone": "+7 (495) 123-45-67",
+      "address": "г. Москва, ул. Поставщиков, 15",
+      "inn": "7707987654",
+      "extra_fields": null
+    },
+    {
+      "_export_id": 2,
+      "name": "ИП Иванов",
+      "phone": "+7 (916) 555-12-34",
+      "address": "г. Подольск",
+      "inn": "5021234567",
+      "extra_fields": null
+    },
+    {
+      "_export_id": 3,
+      "name": "Поставщик КИПиА JOYO",
+      "phone": null,
+      "address": null,
+      "inn": "",
+      "extra_fields": null
+    }
+  ],
+  "manufacturers": [
+    {
+      "_export_id": 1,
+      "name": "Завод КИП",
+      "address": "г. Тула, промзона Северная",
+      "extra_fields": null
+    },
+    {
+      "_export_id": 2,
+      "name": "JOYO",
+      "address": "Китай",
+      "extra_fields": null
+    },
+    {
+      "_export_id": 3,
+      "name": "Россия, ООО \"НГММ\"",
+      "address": null,
+      "extra_fields": null
+    }
+  ],
+  "nomenclature": [
+    {
+      "_export_id": 1,
+      "code": "МП-100",
+      "name": "Манометр показывающий 0-1 МПа",
+      "_category_export_id": 1,
+      "_subcategory_export_id": 1,
+      "tag_number": "ТН-001",
+      "package_number": null,
+      "specification": "Диаметр 100 мм, класс точности 1.5",
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 1,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 2,
+      "code": "МП-160",
+      "name": "Манометр показывающий 0-2.5 МПа",
+      "_category_export_id": 1,
+      "_subcategory_export_id": 1,
+      "tag_number": "ТН-002",
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 1,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 3,
+      "code": "BJZT-IV",
+      "name": "Преобразователь BJZT-IV",
+      "_category_export_id": 2,
+      "_subcategory_export_id": 2,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 2,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 4,
+      "code": "BJLM-80H",
+      "name": "Серво-уровнемер BJLM-80H",
+      "_category_export_id": 2,
+      "_subcategory_export_id": 2,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 2,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 5,
+      "code": "BJCOM-IV",
+      "name": "Блок интерфейсный BJCOM-IV",
+      "_category_export_id": 2,
+      "_subcategory_export_id": 2,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 2,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 6,
+      "code": "TM-80N",
+      "name": "Температурный модуль TM-80N",
+      "_category_export_id": 2,
+      "_subcategory_export_id": 2,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 2,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 7,
+      "code": "КШО",
+      "name": "Шкаф обогревающий КШО",
+      "_category_export_id": 2,
+      "_subcategory_export_id": 3,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 8,
+      "code": "КШО (обогреваемые шкафы)",
+      "name": "Шкафы обогревающие",
+      "_category_export_id": 2,
+      "_subcategory_export_id": 3,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 9,
+      "code": "LB 0441.064.001",
+      "name": "Изделие LB 0441.064.001",
+      "_category_export_id": 2,
+      "_subcategory_export_id": 2,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 2,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 10,
+      "code": "LE 5070.064.001",
+      "name": "Изделие LE 5070.064.001",
+      "_category_export_id": 2,
+      "_subcategory_export_id": 2,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 2,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 11,
+      "code": "316L",
+      "name": "Материал 316L",
+      "_category_export_id": 4,
+      "_subcategory_export_id": 5,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 12,
+      "code": "CF3M",
+      "name": "Материал CF3M",
+      "_category_export_id": 4,
+      "_subcategory_export_id": 5,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 13,
+      "code": "Cast aluminum",
+      "name": "Материал Cast aluminum",
+      "_category_export_id": 4,
+      "_subcategory_export_id": 5,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 14,
+      "code": "C220_HST",
+      "name": "Материал C220 HST",
+      "_category_export_id": 4,
+      "_subcategory_export_id": 5,
+      "tag_number": null,
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": null
+    },
+    {
+      "_export_id": 23,
+      "code": null,
+      "name": "Р0-80FIT1067",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "Р0-80FIT1067",
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер грузового места (согласно месторасположению ТС)": "9",
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "9",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 489",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "Наименование отгружаемой позиции  (согласно спецификации и счет-фактуре)": "Счетчик-расходомер массовый ШМ1401-И-Ех-0.2м-1п-1-10-Ф40-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотность: 500.. 2000 кг/м3). МПИ 4 года. Срок службы не менее 20 лет. ШМ1401 ШМ1401 - Ду40 мм Условный типоразмер сенсора И Тип монтажа блока электроники: Интегральное Сертификация взрывозащиты: Взрывозащищенное 1Ex d ib IIC T6 Gb X 0.2м Класс точности п",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 27,
+      "code": null,
+      "name": "НМ-00007792",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "НМ-00007792",
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер грузового места (согласно месторасположению ТС)": "12.2",
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "13",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 488",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "Наименование отгружаемой позиции  (согласно спецификации и счет-фактуре)": "Измеритель двухпроводной линии APLISENS ALW-N/Ex/RU",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 28,
+      "code": "P0-71FIT1005",
+      "name": "Счетчик-расходомер массовый ШТРАЙ-МАСС ШМ2501-И-Ех-0.5м-1п-1-525-Ф150-Г-6.3МПа-0м-ЭБП-A-2 01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1005",
+      "package_number": "1",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "1",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1478",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 29,
+      "code": "P0-71FIT1010",
+      "name": "Счетчик-расходомер массовый ШМ2001-И-Ех-0.5м-1п-1-190-Ф100-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотност",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1010",
+      "package_number": "2",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "2",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 479",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 30,
+      "code": "P0-71FIT1015",
+      "name": "Счетчик-расходомер массовый ШМ1501-И-Ех-0.5м-1п-1-47-Ф50-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотность:",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1015",
+      "package_number": "3",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "3",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 480",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 31,
+      "code": "P0-71FIT1197",
+      "name": "Счетчик-расходомер массовый ШМ1801-И-Ех-0.5м-1п-1-110-Ф80-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотность",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1197",
+      "package_number": "4",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "4",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 481",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 32,
+      "code": "P0-71FIT1207",
+      "name": "Счетчик-расходомер массовый ШМ1801-И-Ех-0.5м-1п-1-110-Ф80-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотность",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1207",
+      "package_number": "5",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "5",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 482",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 33,
+      "code": "P0-71FIT1231",
+      "name": "Счетчик-расходомер массовый ШМ2501-И-Ех-0.5м-1п-1-605-Ф150-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотност",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1231",
+      "package_number": "6",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "6",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 483",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 34,
+      "code": "P0-80FIT1003",
+      "name": "Счетчик-расходомер массовый ШМ1501-И-Ех-0.5м-1п-1-38-Ф50-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотность:",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-80FIT1003",
+      "package_number": "7",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "7",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 487",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 35,
+      "code": "P0-80FIT1013",
+      "name": "Счетчик-расходомер массовый ШМ1501-И-Ех-0.2м-1п-1-18-Ф50-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотность:",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-80FIT1013",
+      "package_number": "8",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "8",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 488",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 36,
+      "code": "Р0-80FIT1067",
+      "name": "Счетчик-расходомер массовый ШМ1401-И-Ех-0.2м-1п-1-10-Ф40-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотность:",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "Р0-80FIT1067",
+      "package_number": "9",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "9",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 489",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 37,
+      "code": "P0-71FIT1184",
+      "name": "Счетчик-расходомер массовый ШМ2501-И-Ех-0.5м-1п-1-525-Ф150-Г-6.3МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотност",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1184",
+      "package_number": "10",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "10",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 484",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 38,
+      "code": "P0-71FIT1180",
+      "name": "Счетчик-расходомер массовый ШМ2001-И-Ех-0.2м-1п-1-185-Ф100-Г-4.0МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотност",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1180",
+      "package_number": "11",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "11",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 485",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 39,
+      "code": null,
+      "name": "Сборное место №1",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": null,
+      "package_number": "12",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 3.0,
+        "Кол-во упаковок, шт": "1"
+      }
+    },
+    {
+      "_export_id": 40,
+      "code": "P0-71FIT1147",
+      "name": "Счетчик-расходомер массовыйШМ2501-И-Ех-0.1м-1п-1-275-Ф150-C-1.6МПа-0м-ЭБП-A-2-01-010001 Массовый кориолисовый расходомер \"Штрай-Масс\" (Ду3...Ду300; температура среды измерения: 240…+350°С; давление среды: 0,1…25 МПа; окруж.температура:-60…+70°С, плотность",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "P0-71FIT1147",
+      "package_number": "12.1",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "12",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 486",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 41,
+      "code": "НМ-00007792",
+      "name": "Измеритель двухпроводной линии APLISENS ALW-N/Ex/RU",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "НМ-00007792",
+      "package_number": "12.2",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Номер отгружаемой позиции (согласно счету-фактуре)": "13",
+        "Номер отгружаемой позиции  (согласно спецификации)": "1 488",
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 42,
+      "code": null,
+      "name": "Сопроводительная документация:  \t Руководство по эксплуатации, Паспорт, Методика поверки \tСборник чертежей  \tСвидетельство об аттестации эталон единицы величины, используемого в сфере государственного регулирования обеспечения единства измерений №20801",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": null,
+      "package_number": "12.3",
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": null,
+      "extra_fields": {
+        "Условия хранения на площадке грузополучателя,  другие обозначения": "Отапливаемый склад",
+        "manufacturer": "Россия, ООО \"НГММ\"",
+        "quantity": 1.0
+      }
+    },
+    {
+      "_export_id": 43,
+      "code": "GLE-RD-(M0-74-040)-J-DF 5020",
+      "name": "MO-74FIT2054",
+      "_category_export_id": null,
+      "_subcategory_export_id": null,
+      "tag_number": "MO-74FIT2054",
+      "package_number": null,
+      "specification": null,
+      "question_sheet_no": null,
+      "price": null,
+      "_manufacturer_export_id": 3,
+      "extra_fields": null
+    }
+  ],
+  "contracts": [
+    {
+      "_export_id": 1,
+      "_supplier_export_id": 1,
+      "number": "Д-2024-001",
+      "date_start": "2024-01-01",
+      "date_end": "2024-12-31",
+      "extra_fields": null
+    }
+  ],
+  "contract_appendices": [
+    {
+      "_contract_export_id": 1,
+      "name": "Спецификация №1",
+      "extra_fields": null
+    }
+  ],
+  "supplies": [
+    {
+      "_supplier_export_id": 1,
+      "_nomenclature_export_id": 1,
+      "quantity": 5.0,
+      "production_date": "2024-06-15",
+      "calibration_date": "2024-07-01",
+      "extra_fields": null
+    },
+    {
+      "_supplier_export_id": 1,
+      "_nomenclature_export_id": 2,
+      "quantity": 3.0,
+      "production_date": "2024-06-15",
+      "calibration_date": "2024-07-01",
+      "extra_fields": null
+    },
+    {
+      "_supplier_export_id": 3,
+      "_nomenclature_export_id": 5,
+      "quantity": 1.0,
+      "production_date": null,
+      "calibration_date": null,
+      "extra_fields": null
+    },
+    {
+      "_supplier_export_id": 3,
+      "_nomenclature_export_id": 9,
+      "quantity": 1.0,
+      "production_date": null,
+      "calibration_date": null,
+      "extra_fields": null
+    },
+    {
+      "_supplier_export_id": 3,
+      "_nomenclature_export_id": 10,
+      "quantity": 1.0,
+      "production_date": null,
+      "calibration_date": null,
+      "extra_fields": null
+    },
+    {
+      "_supplier_export_id": 3,
+      "_nomenclature_export_id": 3,
+      "quantity": 1.0,
+      "production_date": null,
+      "calibration_date": null,
+      "extra_fields": null
+    },
+    {
+      "_supplier_export_id": 3,
+      "_nomenclature_export_id": 4,
+      "quantity": 1.0,
+      "production_date": null,
+      "calibration_date": null,
+      "extra_fields": null
+    },
+    {
+      "_supplier_export_id": 3,
+      "_nomenclature_export_id": 6,
+      "quantity": 1.0,
+      "production_date": null,
+      "calibration_date": null,
+      "extra_fields": null
+    }
+  ]
+}

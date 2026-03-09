@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security — ikamdocs</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><span class="logo-mark"></span><span>ikamdocs</span></a>
+      <nav class="nav">
+        <a href="index.html">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a href="integrations.html">Integrations</a>
+        <a class="active" href="security.html">Security</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="platform.html">Product</a>
+        <a class="btn btn-primary" href="index.html#contact">Request demo</a>
+        <button class="btn btn-secondary mobile-toggle" data-mobile-menu>Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container split-hero">
+        <div>
+          <div class="kicker">Security</div>
+          <h1 class="display" style="max-width:9ch;">Security posture designed for enterprise trust.</h1>
+          <p class="lead">Страница Security оформлена как раздел реального enterprise-продукта: isolation, access controls, auditability, operational guarantees и procurement-ready language вместо общих обещаний.</p>
+          <div class="callout">Security здесь встроена в narrative продукта: она связана с data path, sync policies и traceability, а не висит отдельно как обязательная формальность.</div>
+        </div>
+        <div class="panel" style="padding:26px;">
+          <div class="card">
+            <h3>Security summary</h3>
+            <div class="mini-log">
+              <div class="log-item"><span>Tenant isolation</span><span class="status ok">Active</span></div>
+              <div class="log-item"><span>Role-based permissions</span><span class="status ok">Granular</span></div>
+              <div class="log-item"><span>API key scopes</span><span class="status ok">Scoped</span></div>
+              <div class="log-item"><span>Audit retention</span><span class="status ok">Configured</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div><div class="kicker">Security model</div><h2 class="section-title">The system protects data by design, not by checklist.</h2></div>
+          <p>Здесь важно показать логику защиты: tenants разделены, доступ гранулирован, интеграции изолированы по ключам и логируются вместе с operational events.</p>
+        </div>
+        <div class="security-grid">
+          <div class="feature-card security-card large"><div class="icon-chip">01</div><h3>Tenant isolation</h3><p>Данные компаний разделены на уровне модели доступа и application logic, чтобы исключить cross-tenant leakage.</p><ul class="feature-list"><li>Workspace boundaries</li><li>Scoped tenant context</li><li>Isolation-first architecture</li></ul></div>
+          <div class="feature-card security-card large"><div class="icon-chip">02</div><h3>PostgreSQL RLS</h3><p>Row-level controls дополняют application permissions и снижают риск ошибочного доступа на уровне базы.</p><ul class="feature-list"><li>Policy-based reads</li><li>Scoped writes</li><li>Defense in depth</li></ul></div>
+          <div class="feature-card security-card"><div class="icon-chip">03</div><h3>Audit logs</h3><p>Изменения по SKU, документам, импортам и интеграциям сохраняются с контекстом actor and event origin.</p></div>
+          <div class="feature-card security-card"><div class="icon-chip">04</div><h3>Secrets handling</h3><p>Токены и integration credentials отделены от UI-accessible layers и работают по scoped policies.</p></div>
+          <div class="feature-card security-card"><div class="icon-chip">05</div><h3>Webhook integrity</h3><p>Подписанные payloads, replay protection и idempotent consumers для событийной доставки.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <h3>Access model</h3>
+          <div class="timeline">
+            <div class="timeline-item"><strong>Auth</strong><div><h4 style="margin:0 0 6px;">Identity gates</h4><p>Пользователь входит в конкретный workspace и получает tenant-scoped context.</p></div></div>
+            <div class="timeline-item"><strong>Roles</strong><div><h4 style="margin:0 0 6px;">Granular permissions</h4><p>Разделяются catalog ops, supplier admins, auditors, integration managers and client viewers.</p></div></div>
+            <div class="timeline-item"><strong>Events</strong><div><h4 style="margin:0 0 6px;">Auditable actions</h4><p>Изменения связаны с actor ID, object ID, source type and time-based history.</p></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Operational safeguards</h3>
+          <div class="mini-log">
+            <div class="log-item"><span>Scoped API keys with rotation</span><span class="status ok">Enabled</span></div>
+            <div class="log-item"><span>Rate limiting for external access</span><span class="status ok">Enabled</span></div>
+            <div class="log-item"><span>Replay protection for webhooks</span><span class="status ok">Enabled</span></div>
+            <div class="log-item"><span>Failure review for risky syncs</span><span class="status review">Policy</span></div>
+            <div class="log-item"><span>Document compliance alerts</span><span class="status sync">Active</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container panel" style="padding:26px;">
+        <div class="section-header" style="margin-bottom:18px;">
+          <div><div class="kicker">Why this matters</div><h2 class="section-title" style="max-width:12ch;">Security narrative for procurement and IT review.</h2></div>
+          <p>Наличие отдельной сильной страницы Security помогает не только визуально, но и коммерчески: она поднимает доверие, ускоряет переговоры и делает продукт менее “самодельным” в глазах enterprise-клиента.</p>
+        </div>
+        <div class="grid-3">
+          <div class="feature-card"><div class="icon-chip">A</div><h3>Trust signal</h3><p>Показывает зрелость команды и системное отношение к данным клиентов.</p></div>
+          <div class="feature-card"><div class="icon-chip">B</div><h3>Risk reduction</h3><p>Уменьшает количество вопросов на этапе ИТ-проверки и пилота.</p></div>
+          <div class="feature-card"><div class="icon-chip">C</div><h3>Enterprise fit</h3><p>Делает сайт визуально и смыслово ближе к продуктам уровня Stripe, Vercel и modern infra SaaS.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><div class="logo"><span class="logo-mark"></span><span>ikamdocs</span></div><p>Enterprise security page for ikamdocs.</p></div>
+      <div class="footer-nav"><a href="index.html">Overview</a><a href="platform.html">Platform</a><a href="integrations.html">Integrations</a></div>
+      <div>© <span data-year></span> ikamdocs</div>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+# Core
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-dotenv==1.0.1
+pydantic[email]>=2.0,<3
+pydantic-settings==2.6.1
+
+# Database
+sqlalchemy[asyncio]==2.0.36
+asyncpg==0.30.0
+aiosqlite==0.20.0
+alembic==1.14.0
+
+# Auth & Security
+python-jose[cryptography]==3.3.0
+bcrypt>=4.0.0
+cryptography==44.0.0
+
+# Document processing (Pillow/qrcode — опционально, ставятся отдельно на сервере)
+# pillow pytesseract pdf2image qrcode[pil]
+pypdf==5.1.0
+reportlab>=4.0.0
+python-docx>=1.0.0
+openpyxl>=3.1.0
+
+# Payments
+yookassa==3.3.0
+
+# Redis (кэш, сессии)
+redis==5.2.0
+
+# OpenAI (для скрипта генерации изображений)
+openai>=1.35.0
+certifi>=2024.0.0
+
+# Email
+aiosmtplib>=3.0.0
+
+# Utils
+httpx==0.28.1
+prometheus_client>=0.20.0
+slowapi==0.1.9
+apscheduler==3.10.4
+python-multipart==0.0.17

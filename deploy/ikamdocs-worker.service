@@ -1,0 +1,17 @@
+[Unit]
+Description=ikamdocs background worker (Redis queue)
+After=network.target postgresql.service redis.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/var/ikamdocs/backend
+Environment="PATH=/var/ikamdocs/backend/venv/bin"
+ExecStart=/var/ikamdocs/backend/venv/bin/python scripts/run_worker.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

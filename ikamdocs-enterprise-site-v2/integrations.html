@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integrations — ikamdocs</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><span class="logo-mark"></span><span>ikamdocs</span></a>
+      <nav class="nav">
+        <a href="index.html">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a class="active" href="integrations.html">Integrations</a>
+        <a href="security.html">Security</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="platform.html">Platform</a>
+        <a class="btn btn-primary" href="index.html#contact">Request demo</a>
+        <button class="btn btn-secondary mobile-toggle" data-mobile-menu>Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container split-hero">
+        <div>
+          <div class="kicker">Integrations</div>
+          <h1 class="display" style="max-width:10ch;">Integrations presented like a real platform ecosystem.</h1>
+          <p class="lead">Эта страница снимает главное техническое сомнение: как ikamdocs встраивается в существующий стек. Здесь важен язык контрактов, projection-моделей, sync policies и channel-specific delivery.</p>
+        </div>
+        <div class="panel" style="padding:28px;">
+          <div class="card">
+            <h3>Connector strategy</h3>
+            <div class="timeline">
+              <div class="timeline-item"><strong>Input</strong><div><h4 style="margin:0 0 6px;">Supplier intake contracts</h4><p>Standardized mapping for Excel, CSV, API and email attachments.</p></div></div>
+              <div class="timeline-item"><strong>Core</strong><div><h4 style="margin:0 0 6px;">Canonical internal model</h4><p>Normalized entities for SKUs, documents, versions and supplier links.</p></div></div>
+              <div class="timeline-item"><strong>Output</strong><div><h4 style="margin:0 0 6px;">Projection-based exports</h4><p>Each downstream system receives its own stable schema and sync policy.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div><div class="kicker">Connector catalog</div><h2 class="section-title">Marketplace, ERP and custom channels in one layer.</h2></div>
+          <p>Интеграции сгруппированы так, чтобы было понятно: ikamdocs управляет не просто подключениями, а целым слоем совместимости между master data и внешними системами.</p>
+        </div>
+        <div class="logo-cloud">
+          <div class="logo-cell">Ozon</div>
+          <div class="logo-cell">Wildberries</div>
+          <div class="logo-cell">Shopify</div>
+          <div class="logo-cell">1C / ERP</div>
+          <div class="logo-cell">REST API</div>
+          <div class="logo-cell">CSV import</div>
+          <div class="logo-cell">Excel intake</div>
+          <div class="logo-cell">Webhooks</div>
+          <div class="logo-cell">BI exports</div>
+          <div class="logo-cell">Custom apps</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-3">
+          <div class="feature-card"><div class="icon-chip">01</div><h3>Inbound pipelines</h3><p>Принимают любые supplier-файлы и приводят их к единой canonical structure before validation and merge.</p><ul class="feature-list"><li>Schema templates</li><li>Manual overrides</li><li>Source-aware audits</li></ul></div>
+          <div class="feature-card"><div class="icon-chip">02</div><h3>Outbound projections</h3><p>Каждый канал получает свой projection model, где fields, labels and rules адаптированы под target system.</p><ul class="feature-list"><li>Channel contracts</li><li>Field mapping</li><li>Safe publish controls</li></ul></div>
+          <div class="feature-card"><div class="icon-chip">03</div><h3>Event delivery</h3><p>Webhooks, retries, queues, idempotency keys and diff-based syncing reduce accidental overwrites.</p><ul class="feature-list"><li>Replay protection</li><li>Retry backoff</li><li>Failure traces</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container panel" style="padding:26px;">
+        <div class="section-header" style="margin-bottom:20px;">
+          <div><div class="kicker">Sample integration view</div><h2 class="section-title" style="max-width:12ch;">The page explains how sync actually works.</h2></div>
+          <p>Здесь важен не только список интеграций, но и объяснение механики: contract in, canonical model, projection out, channel monitoring, audit log and rollback capability.</p>
+        </div>
+        <div class="main-grid">
+          <div class="card">
+            <h3>Outbound publish queue</h3>
+            <table class="table">
+              <thead><tr><th>Connector</th><th>Projection</th><th>Status</th><th>Latency</th></tr></thead>
+              <tbody>
+                <tr><td>Ozon</td><td>Marketplace card + stock</td><td><span class="status ok">Healthy</span></td><td>280 ms</td></tr>
+                <tr><td>Wildberries</td><td>Product payload + attrs</td><td><span class="status sync">Syncing</span></td><td>410 ms</td></tr>
+                <tr><td>Shopify</td><td>Catalog + metafields</td><td><span class="status ok">Healthy</span></td><td>190 ms</td></tr>
+                <tr><td>ERP</td><td>Pricing + stock delta</td><td><span class="status review">Review</span></td><td>620 ms</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <h3>Integration posture</h3>
+            <div class="mini-log">
+              <div class="log-item"><span>Signed webhooks enabled</span><span class="status ok">On</span></div>
+              <div class="log-item"><span>Idempotent delivery</span><span class="status ok">On</span></div>
+              <div class="log-item"><span>Source mapping coverage</span><span class="status ok">96%</span></div>
+              <div class="log-item"><span>Retry queue backlog</span><span class="status sync">12 items</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><div class="logo"><span class="logo-mark"></span><span>ikamdocs</span></div><p>Integration ecosystem for enterprise distribution workflows.</p></div>
+      <div class="footer-nav"><a href="index.html">Overview</a><a href="platform.html">Platform</a><a href="security.html">Security</a></div>
+      <div>© <span data-year></span> ikamdocs</div>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

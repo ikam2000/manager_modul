@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
+  <link rel="manifest" href="/favicons/site.webmanifest"/>
+  <title>ikamdocs — Презентация для клиентов</title>
+  <meta name="description" content="Презентация ikamdocs для клиентов: платформа управления номенклатурой и маркировкой." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0f17;
+      --surface: #111827;
+      --accent: #0ea5e9;
+      --accent-2: #38bdf8;
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .slide {
+      min-height: 100vh;
+      padding: 48px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      page-break-after: always;
+      border-bottom: 1px solid var(--border);
+    }
+    .slide:last-child { page-break-after: avoid; }
+
+    .kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .lead {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      line-height: 1.6;
+    }
+    .gradient { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 24px; }
+    .card {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+    .metric { font-size: 28px; font-weight: 800; color: var(--accent); margin: 8px 0 4px; }
+    .metric-label { font-size: 13px; color: var(--text-secondary); }
+
+    ul { list-style: none; }
+    li { padding: 6px 0; font-size: 14px; color: var(--text-secondary); position: relative; padding-left: 20px; }
+    li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+    .logo { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 24px; }
+    .tag { display: inline-block; padding: 6px 12px; background: rgba(14,165,233,0.15); border-radius: 8px; font-size: 12px; font-weight: 600; margin-right: 8px; margin-bottom: 8px; }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      .slide {
+        min-height: 297mm;
+        padding: 32px 48px;
+        page-break-after: always;
+        border: none;
+      }
+      .kicker { color: #0284c7; }
+      .lead, .card p, li { color: #475569; }
+      .card { background: #f8fafc; border-color: #e2e8f0; }
+      .metric { color: #0284c7; }
+      .gradient { color: #0284c7; -webkit-text-fill-color: #0284c7; }
+      .tag { background: #e0f2fe; color: #0369a1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 1. Титульный слайд -->
+<div class="slide">
+  <div class="logo">ikamdocs</div>
+  <p class="kicker">Презентация продукта</p>
+  <h1>Единое ядро для <span class="gradient">номенклатуры</span> и маркировки</h1>
+  <p class="lead">Автоматизация каталога, QR‑маркировки, поставок и документооборота без Excel и ручного хаоса. Данные под контролем. Процессы стандартизированы.</p>
+  <p style="margin-top: 32px; font-size: 14px; color: var(--text-secondary);">ikamdocs.ru · ikam2000@yandex.ru</p>
+  <p style="margin-top: 12px; font-size: 11px; color: var(--text-secondary); opacity: 0.7;">Экспорт в PDF: Файл → Печать → Сохранить как PDF</p>
+</div>
+
+<!-- 2. Ценность -->
+<div class="slide">
+  <p class="kicker">Ценность</p>
+  <h2>Что вы получаете</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>До 90%</h3>
+      <p class="metric-label">Снижение ошибок в маркировке</p>
+    </div>
+    <div class="card">
+      <h3>В 3–5 раз</h3>
+      <p class="metric-label">Ускорение обработки поставок</p>
+    </div>
+    <div class="card">
+      <h3>100%</h3>
+      <p class="metric-label">Прозрачность данных по цепочке</p>
+    </div>
+  </div>
+  <p style="margin-top: 28px; font-size: 15px; color: var(--text-secondary);">Централизованная система учёта информации. Контроль версий. Соответствие «Честному знаку» и требованиям регуляторов.</p>
+</div>
+
+<!-- 3. Возможности -->
+<div class="slide">
+  <p class="kicker">Возможности</p>
+  <h2>Ключевые функции</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Централизованный каталог</h3>
+      <p>Централизованная система учёта информации по номенклатуре, атрибутам, поставщикам и производителям.</p>
+    </div>
+    <div class="card">
+      <h3>QR‑маркировка</h3>
+      <p>Генерация кодов, шаблоны печати, контроль статусов и соответствия.</p>
+    </div>
+    <div class="card">
+      <h3>Управление поставками</h3>
+      <p>От заказа до приёмки: статусы, документы, сверки, аналитика.</p>
+    </div>
+    <div class="card">
+      <h3>Документооборот</h3>
+      <p>Загрузка, хранение, связь с номенклатурой. Паспорта, сертификаты.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Интеграции -->
+<div class="slide">
+  <p class="kicker">Интеграции</p>
+  <h2>Подключаемся к вашей инфраструктуре</h2>
+  <div class="grid-4">
+    <div class="card">
+      <h3>Учётные системы</h3>
+      <span class="tag">1С</span><span class="tag">ERP</span><span class="tag">Excel</span>
+    </div>
+    <div class="card">
+      <h3>Файлы</h3>
+      <span class="tag">PDF</span><span class="tag">JPEG</span><span class="tag">PNG</span>
+    </div>
+    <div class="card">
+      <h3>ЭДО и маркировка</h3>
+      <span class="tag">ЭДО</span><span class="tag">Честный знак</span>
+    </div>
+    <div class="card">
+      <h3>API и автоматизация</h3>
+      <span class="tag">REST API</span><span class="tag">Webhooks</span><span class="tag">Zapier</span>
+    </div>
+  </div>
+  <p style="margin-top: 20px; font-size: 14px; color: var(--text-secondary);">REST API, ключи доступа, Swagger-документация. Готовые сценарии для Zapier, Make, n8n.</p>
+</div>
+
+<!-- 5. Тарифы -->
+<div class="slide">
+  <p class="kicker">Тарифы</p>
+  <h2>Уровни решения</h2>
+  <div class="grid-3">
+    <div class="card">
+      <p class="kicker">Starter</p>
+      <h3>Для команды</h3>
+      <p>Каталог, импорт/экспорт, базовые роли. Идеально для старта.</p>
+    </div>
+    <div class="card" style="border-color: rgba(14,165,233,0.4);">
+      <p class="kicker">Business</p>
+      <h3>Для процессов</h3>
+      <p>QR, поставки, версии, интеграции. Рекомендуемый уровень.</p>
+    </div>
+    <div class="card">
+      <p class="kicker">Enterprise</p>
+      <h3>Для инфраструктуры</h3>
+      <p>RLS, SLA, приватный контур, on-prem по запросу.</p>
+    </div>
+  </div>
+  <p style="margin-top: 24px; font-size: 14px; color: var(--text-secondary);">Цены зависят от объёма данных, числа пользователей и требований безопасности. Пробный период доступен.</p>
+</div>
+
+<!-- 6. Безопасность -->
+<div class="slide">
+  <p class="kicker">Безопасность</p>
+  <h2>Данные под защитой</h2>
+  <ul style="margin-top: 16px;">
+    <li>Multi-tenant: каждая компания изолирована</li>
+    <li>RLS (Row Level Security) на уровне БД</li>
+    <li>Роли и права на уровне сущностей и действий</li>
+    <li>Журнал операций и история изменений</li>
+    <li>Валидация данных и контроль интеграций</li>
+  </ul>
+  <p style="margin-top: 24px; font-size: 15px; color: var(--text-secondary);">99.9% доступности. 0 потерь данных. Хранение в РФ.</p>
+</div>
+
+<!-- 7. CTA -->
+<div class="slide">
+  <p class="kicker">Следующий шаг</p>
+  <h1>Попробуйте бесплатно</h1>
+  <p class="lead">Регистрация без карты. Персональное демо — покажем интерфейс на ваших сценариях.</p>
+  <p style="margin-top: 32px; font-size: 16px;">Запросить демо: ikam2000@yandex.ru</p>
+  <p style="margin-top: 8px; font-size: 14px;"><a href="https://ikamdocs.ru/register" style="color: var(--accent);">ikamdocs.ru/register</a></p>
+</div>
+
+</body>
+</html>

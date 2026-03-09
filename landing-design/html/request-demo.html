@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
+  <link rel="manifest" href="/favicons/site.webmanifest"/>
+  <title>Запросить демо — ikamdocs</title>
+  <meta name="description" content="Запросите демонстрацию ikamdocs: платформа управления номенклатурой, QR‑маркировкой и документооборотом."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://ikamdocs.ru/request-demo.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #060a12; --bg-secondary: #0b1220; --surface: rgba(17,24,39,0.62); --border: rgba(255,255,255,0.10); --accent: #0ea5e9; --text: #f1f5f9; --text-secondary: #a3b1c6; --radius: 12px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+    .form-section .container { max-width: 560px; padding: 0 24px; }
+    footer { padding: 56px 0; background: var(--bg-secondary); border-top: 1px solid rgba(255,255,255,0.06); }
+    footer .container { max-width: 1180px; }
+    footer p, footer a { color: rgba(241,245,249,0.55); font-size: 14px; }
+    footer h4 { font-weight: 650; margin-bottom: 12px; color: rgba(241,245,249,0.88); }
+    footer a { display: block; margin-bottom: 10px; }
+    @media (max-width: 640px) { .container { padding: 0 16px; } header { padding: 0 16px !important; height: 56px !important; } header nav.header-nav-desktop { display: none !important; } header .header-nav-mobile { display: block !important; } .form-section .container { padding: 0 16px; } }
+    .form-section { padding: 48px 0 64px; }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .sub { color: var(--text-secondary); font-size: 15px; margin-bottom: 32px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; color: rgba(241,245,249,0.9); }
+    input, textarea {
+      width: 100%; padding: 14px 18px; border-radius: var(--radius); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text); font-size: 15px; font-family: inherit;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(241,245,249,0.4); }
+    textarea { min-height: 120px; resize: vertical; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--radius);
+      font-weight: 600; font-size: 15px; cursor: pointer; border: none; transition: 0.2s; font-family: inherit; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, #0284c7 100%); color: #fff; width: 100%; margin-top: 8px; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(14,165,233,0.3); }
+    .btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border); margin-top: 16px; }
+    .form-msg { margin-top: 20px; padding: 14px; border-radius: var(--radius); font-size: 14px; display: none; }
+    .form-msg.success { background: rgba(34,197,94,0.15); color: #86efac; display: block; }
+    .form-msg.error { background: rgba(239,68,68,0.15); color: #fca5a5; display: block; }
+    .form-privacy { font-size: 12px; color: rgba(241,245,249,0.5); margin-top: 16px; line-height: 1.5; }
+    .form-privacy a { color: rgba(14,165,233,0.9); }
+    @media (max-width: 640px) { .form-section { padding: 32px 0 48px; } h1 { font-size: 24px; } }
+  </style>
+</head>
+<body>
+  <div id="shared-header"></div>
+  <section class="form-section">
+    <div class="container">
+      <h1>Запросить демо</h1>
+      <p class="sub">Оставьте заявку — мы свяжемся с вами и проведём демонстрацию платформы.</p>
+      <form id="demoForm">
+        <div class="form-group">
+          <label for="name">Имя *</label>
+          <input type="text" id="name" name="name" required placeholder="Как к вам обращаться">
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="example@company.ru" inputmode="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (999) 000-00-00" data-phone-mask>
+        </div>
+        <div class="form-group">
+          <label for="company">Компания</label>
+          <input type="text" id="company" name="company" placeholder="Название компании">
+        </div>
+        <div class="form-group">
+          <label for="message">Комментарий</label>
+          <textarea id="message" name="message" placeholder="Опишите вашу задачу или вопросы"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        <p class="form-privacy">Нажимая кнопку, вы соглашаетесь с <a href="/privacy">политикой конфиденциальности</a> и <a href="/agreement">соглашением о персональных данных</a>.</p>
+      </form>
+      <div id="formMsg" class="form-msg"></div>
+      <a href="/" class="btn btn-secondary">← Назад на главную</a>
+    </div>
+  </section>
+  <div id="shared-footer"></div>
+  <script src="/shared/layout.js"></script>
+  <script src="/shared/form-masks.js"></script>
+  <script>
+    (function(){
+      var p = new URLSearchParams(window.location.search);
+      if (p.get('sent') === '1') {
+        document.getElementById('formMsg').className = 'form-msg success';
+        document.getElementById('formMsg').textContent = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+        var f = document.getElementById('demoForm'); if (f) f.style.display = 'none';
+        return;
+      }
+      var form = document.getElementById('demoForm');
+      var msgEl = document.getElementById('formMsg');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type=submit]');
+        if (btn) btn.disabled = true;
+        msgEl.className = 'form-msg';
+        msgEl.textContent = '';
+        msgEl.style.display = 'none';
+        fetch('/landing-form', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            subject: 'Запрос на демо — ikamdocs',
+            name: form.name.value.trim(),
+            email: form.email.value.trim(),
+            phone: (form.phone && form.phone.value) ? form.phone.value.trim() : '',
+            company: (form.company && form.company.value) ? form.company.value.trim() : '',
+            message: (form.message && form.message.value) ? form.message.value.trim() : ''
+          })
+        })
+        .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
+        .then(function(res) {
+          if (res.ok) {
+            msgEl.className = 'form-msg success';
+            msgEl.textContent = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+            msgEl.style.display = 'block';
+            form.style.display = 'none';
+            window.history.replaceState({}, '', window.location.pathname + '?sent=1');
+          } else {
+            msgEl.className = 'form-msg error';
+            msgEl.textContent = (res.data && (Array.isArray(res.data.detail) ? res.data.detail[0]?.msg : res.data.detail)) || 'Ошибка отправки. Попробуйте позже.';
+            msgEl.style.display = 'block';
+            if (btn) btn.disabled = false;
+          }
+        })
+        .catch(function(err) {
+          msgEl.className = 'form-msg error';
+          msgEl.textContent = 'Ошибка отправки. Попробуйте позже.';
+          msgEl.style.display = 'block';
+          if (btn) btn.disabled = false;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
