@@ -21,6 +21,7 @@ from sqlalchemy import select, exists, or_, func
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic import BaseModel
 
+from app.config import get_settings
 from app.database import get_db
 from app.dependencies import get_current_user, get_current_trader, get_user_company_id, get_user_company_ids, check_trader_trial_or_paid, check_entity_limit, check_nomenclature_per_supplier_limit
 from app.models.user import User, Role, Company
@@ -1450,7 +1451,7 @@ async def trader_import_excel(
     )
     await db.commit()
 
-    SUBSCRIPTION_URL = "/cabinet/payment"
+    sub_url = "/cabinet/payment" if get_settings().feature_yookassa else None
     limit_reached = result.get("limit_reached", False)
     limit_message = result.get("limit_message")
     msg = f"Создано: {result.get('created', 0)}, обновлено: {result.get('updated', 0)}"
@@ -1462,7 +1463,7 @@ async def trader_import_excel(
         "message": msg,
         "limit_reached": limit_reached,
         "limit_message": limit_message if limit_reached else None,
-        "subscription_url": SUBSCRIPTION_URL if limit_reached else None,
+        "subscription_url": sub_url if limit_reached else None,
     }
 
 
@@ -1475,6 +1476,8 @@ async def sync_to_shopify(
     db: AsyncSession = Depends(get_db),
 ):
     """Push prices and stock to connected Shopify store. Uses OAuth token from oauth_connections. GraphQL Admin API."""
+    if not get_settings().feature_marketplace_oauth:
+        raise HTTPException(403, "Интеграция с торговыми площадками отключена в конфигурации.")
     from app.models.oauth_connection import OAuthConnection
 
     cid = await _get_trader_company_id(user, db)
@@ -1717,6 +1720,8 @@ async def sync_to_wildberries(
     db: AsyncSession = Depends(get_db),
 ):
     """Выгрузка цен и остатков на Wildberries. Требуется wb_nm_id в extra_fields номенклатуры."""
+    if not get_settings().feature_marketplace_oauth:
+        raise HTTPException(403, "Интеграция с торговыми площадками отключена в конфигурации.")
     from app.models.oauth_connection import OAuthConnection
 
     import httpx
@@ -1791,6 +1796,8 @@ async def sync_to_ozon(
     db: AsyncSession = Depends(get_db),
 ):
     """Выгрузка цен и остатков на Ozon. offer_id = баркод. Client-Id и Api-Key в oauth_connection (store_id, access_token)."""
+    if not get_settings().feature_marketplace_oauth:
+        raise HTTPException(403, "Интеграция с торговыми площадками отключена в конфигурации.")
     from app.models.oauth_connection import OAuthConnection
 
     import httpx

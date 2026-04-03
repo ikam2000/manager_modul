@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { useFeatureFlags } from '../contexts/FeatureFlagsContext'
 import { useTheme } from '../contexts/ThemeContext'
 import CabinetSidebar from '../components/CabinetSidebar'
 import CabinetSettings from './cabinet/CabinetSettings'
@@ -35,6 +36,19 @@ import CabinetTraderExport from './cabinet/CabinetTraderExport'
 import CabinetTraderSync from './cabinet/CabinetTraderSync'
 import CabinetTraderSuppliers from './cabinet/CabinetTraderSuppliers'
 import CabinetTraderCategories from './cabinet/CabinetTraderCategories'
+
+function CabinetPaymentGate() {
+  const { yookassa, loaded } = useFeatureFlags()
+  if (!loaded) {
+    return (
+      <div style={{ padding: 24, color: 'var(--text-secondary)' }}>Загрузка…</div>
+    )
+  }
+  if (!yookassa) {
+    return <Navigate to="/cabinet/settings" replace />
+  }
+  return <CabinetPayment />
+}
 
 function CabinetLayout() {
   const { user, loading } = useAuth()
@@ -227,7 +241,7 @@ function CabinetLayout() {
           <Route path="tickets" element={<CabinetTickets />} />
           <Route path="suggestions" element={<CabinetSuggestions />} />
           <Route path="settings" element={<CabinetSettings />} />
-          <Route path="payment" element={<CabinetPayment />} />
+          <Route path="payment" element={<CabinetPaymentGate />} />
         </Routes>
       </main>
       </div>

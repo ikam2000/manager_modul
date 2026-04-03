@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useFeatureFlags } from '../../contexts/FeatureFlagsContext'
 import { authFetchWithRetry } from '../../lib/authFetch'
 
 type SyncResult = { synced: number; errors: string[]; message: string } | null
@@ -11,6 +12,7 @@ const PLATFORMS = [
 ] as const
 
 export default function CabinetTraderSync() {
+  const { marketplace_oauth: mpOAuth, loaded } = useFeatureFlags()
   const [loading, setLoading] = useState<string | null>(null)
   const [results, setResults] = useState<Record<string, SyncResult>>({})
 
@@ -44,6 +46,23 @@ export default function CabinetTraderSync() {
     } finally {
       setLoading(null)
     }
+  }
+
+  if (!loaded) {
+    return <div style={{ padding: 24, color: 'var(--text-secondary)' }}>Загрузка…</div>
+  }
+  if (!mpOAuth) {
+    return (
+      <div>
+        <h1 style={{ marginBottom: 24, fontSize: 24, fontWeight: 600 }}>Синхронизация с площадками</h1>
+        <p style={{ color: 'var(--text-secondary)', maxWidth: 560 }}>
+          В этой сборке интеграция с внешними торговыми площадками отключена в конфигурации сервера.
+        </p>
+        <Link to="/cabinet/integrations?tab=api" style={{ color: 'var(--accent)', marginTop: 16, display: 'inline-block' }}>
+          REST API и webhooks
+        </Link>
+      </div>
+    )
   }
 
   return (

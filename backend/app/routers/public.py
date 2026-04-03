@@ -65,6 +65,16 @@ async def landing_form(data: LandingFormRequest):
     return {"ok": True, "message": "Заявка отправлена"}
 
 
+@router.get("/features")
+async def get_features():
+    """Флаги возможностей UI (маркетплейсы OAuth, оплата ЮKassa). Без авторизации."""
+    settings = get_settings()
+    return {
+        "marketplace_oauth": settings.feature_marketplace_oauth,
+        "yookassa": settings.feature_yookassa,
+    }
+
+
 @router.get("/plans")
 async def get_plans():
     """Список тарифов для отображения на лендинге."""

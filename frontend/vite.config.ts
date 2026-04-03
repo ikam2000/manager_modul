@@ -16,6 +16,7 @@ export default defineConfig({
       '/entities': { target: 'http://localhost:8000', changeOrigin: true },
       '/documents': { target: 'http://localhost:8000', changeOrigin: true },
       '/plans': { target: 'http://localhost:8000', changeOrigin: true },
+      '/features': { target: 'http://localhost:8000', changeOrigin: true },
       '/qr': { target: 'http://localhost:8000', changeOrigin: true },
       '/payment': { target: 'http://localhost:8000', changeOrigin: true },
       '/cabinet': { target: 'http://localhost:8000', changeOrigin: true },

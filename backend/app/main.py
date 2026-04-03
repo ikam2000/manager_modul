@@ -100,22 +100,24 @@ app.add_middleware(
 app.include_router(public.router, prefix="", tags=["public"])
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(cabinet.router, prefix="/cabinet", tags=["cabinet"])
-app.include_router(oauth_integrations.router, prefix="/cabinet", tags=["cabinet"])
+if settings.feature_marketplace_oauth:
+    app.include_router(oauth_integrations.router, prefix="/cabinet", tags=["cabinet"])
 app.include_router(entities.router, prefix="/entities", tags=["entities"])
 app.include_router(documents.router, prefix="/documents", tags=["documents"])
 app.include_router(admin.router, prefix="/admin", tags=["admin"])
 app.include_router(api_integration.router, prefix="/api/v1/integrate", tags=["api"])
 app.include_router(qr.router, prefix="/qr", tags=["qr"])
 app.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
-app.include_router(payment.router, prefix="/payment", tags=["payment"])
+if settings.feature_yookassa:
+    app.include_router(payment.router, prefix="/payment", tags=["payment"])
 app.include_router(trader.router, prefix="/trader", tags=["trader"])
-# ЮKassa webhook — в личном кабинете уже настроен https://api.ikameon.pro/yookassa_webhook
-app.add_api_route(
-    "/yookassa_webhook",
-    payment.yookassa_webhook,
-    methods=["POST"],
-    tags=["payment"],
-)
+if settings.feature_yookassa:
+    app.add_api_route(
+        "/yookassa_webhook",
+        payment.yookassa_webhook,
+        methods=["POST"],
+        tags=["payment"],
+    )
 
 
 def custom_openapi():

@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Package, FileText, BarChart3, Plus, Printer } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
+import { useFeatureFlags } from '../../contexts/FeatureFlagsContext'
 
 interface RecentEvent {
   sku: string
@@ -27,6 +28,7 @@ function statusClass(s: string): string {
 }
 
 export default function CabinetHome() {
+  const { marketplace_oauth: mpOAuth } = useFeatureFlags()
   const { user } = useAuth()
   const [data, setData] = useState<DashboardData | null>(null)
   const [oauthConnections, setOauthConnections] = useState<Array<{ provider: string }>>([])
@@ -43,19 +45,28 @@ export default function CabinetHome() {
   }, [])
 
   useEffect(() => {
+    if (!mpOAuth) {
+      setOauthConnections([])
+      return
+    }
     const token = localStorage.getItem('access_token')
     if (!token) return
     fetch('/api/cabinet/integrations/oauth', { headers: { Authorization: `Bearer ${token}` } })
       .then((r) => (r.ok ? r.json() : { connections: [] }))
       .then((d) => setOauthConnections(d.connections || []))
       .catch(() => setOauthConnections([]))
-  }, [])
+  }, [mpOAuth])
 
-  const connectedProviders = new Set(oauthConnections.map((c) => c.provider?.toLowerCase()).filter(Boolean))
-  const syncChannels = [
-    ...SYNC_CHANNEL_IDS.map((id) => ({ id, label: SYNC_CHANNEL_LABELS[id], pct: connectedProviders.has(id) ? 100 : 0 })),
-    { id: 'erp', label: 'ERP', pct: 0 },
-  ]
+  const syncChannels = useMemo(() => {
+    if (!mpOAuth) {
+      return [{ id: 'erp', label: 'ERP / API', pct: 0 }]
+    }
+    const connectedProviders = new Set(oauthConnections.map((c) => c.provider?.toLowerCase()).filter(Boolean))
+    return [
+      ...SYNC_CHANNEL_IDS.map((id) => ({ id, label: SYNC_CHANNEL_LABELS[id], pct: connectedProviders.has(id) ? 100 : 0 })),
+      { id: 'erp', label: 'ERP', pct: 0 },
+    ]
+  }, [mpOAuth, oauthConnections])
 
   const displayName = user?.full_name || user?.email?.split('@')[0] || 'Пользователь'
   const summary = data?.summary ?? {}

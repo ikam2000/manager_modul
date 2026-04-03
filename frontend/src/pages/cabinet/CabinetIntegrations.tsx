@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import { useFeatureFlags } from '../../contexts/FeatureFlagsContext'
 import { Key, Webhook, Package, Copy, Trash2, ExternalLink, Check, Plug, HelpCircle } from 'lucide-react'
 
 const API_BASE = `${typeof window !== 'undefined' ? window.location.origin : ''}/api/v1/integrate`
@@ -31,6 +32,7 @@ const WEBHOOK_EVENTS = [
 ]
 
 export default function CabinetIntegrations() {
+  const { marketplace_oauth: mpOAuth, loaded: flagsLoaded } = useFeatureFlags()
   const [searchParams, setSearchParams] = useSearchParams()
   const [tab, setTab] = useState<'api' | 'webhooks' | 'modules' | 'oauth'>('api')
   const [apiKeys, setApiKeys] = useState<ApiKeyItem[]>([])
@@ -97,24 +99,35 @@ export default function CabinetIntegrations() {
   useEffect(() => {
     fetchApiKeys()
     fetchWebhooks()
-    fetchOauth()
   }, [])
+
+  useEffect(() => {
+    if (mpOAuth) fetchOauth()
+  }, [mpOAuth])
 
   useEffect(() => {
     const t = searchParams.get('tab')
     if (t === 'api' || t === 'webhooks' || t === 'modules' || t === 'oauth') setTab(t)
     const oauth = searchParams.get('oauth')
     const oauthError = searchParams.get('oauth_error')
-    if (oauth) {
+    if (oauth && mpOAuth) {
       setTab('oauth')
       setSearchParams({}, { replace: true })
     }
-    if (oauthError) {
+    if (oauthError && mpOAuth) {
       setTab('oauth')
       alert(`Ошибка подключения: ${oauthError}`)
       setSearchParams({}, { replace: true })
     }
-  }, [searchParams])
+  }, [searchParams, mpOAuth])
+
+  useEffect(() => {
+    if (!flagsLoaded) return
+    if (!mpOAuth && tab === 'oauth') {
+      setTab('api')
+      setSearchParams({ tab: 'api' }, { replace: true })
+    }
+  }, [flagsLoaded, mpOAuth, tab, setSearchParams])
 
   const createApiKey = () => {
     if (!newKeyName.trim() || !token) return
@@ -279,12 +292,16 @@ export default function CabinetIntegrations() {
     }
   }
 
-  const tabs = [
-    { id: 'api' as const, label: 'REST API', icon: <Key size={18} /> },
-    { id: 'webhooks' as const, label: 'Webhooks', icon: <Webhook size={18} /> },
-    { id: 'oauth' as const, label: 'Подключения', icon: <Plug size={18} /> },
-    { id: 'modules' as const, label: 'Модули 1С / ERP / CRM', icon: <Package size={18} /> },
-  ]
+  const tabs = useMemo(
+    () =>
+      [
+        { id: 'api' as const, label: 'REST API', icon: <Key size={18} /> },
+        { id: 'webhooks' as const, label: 'Webhooks', icon: <Webhook size={18} /> },
+        ...(mpOAuth ? [{ id: 'oauth' as const, label: 'Подключения', icon: <Plug size={18} /> }] : []),
+        { id: 'modules' as const, label: 'Модули 1С / ERP / CRM', icon: <Package size={18} /> },
+      ],
+    [mpOAuth],
+  )
 
   return (
     <div className="ds-page">
@@ -487,7 +504,7 @@ export default function CabinetIntegrations() {
         </div>
       )}
 
-      {tab === 'oauth' && (
+      {tab === 'oauth' && mpOAuth && (
         <div className="ds-card">
           <div className="ds-cardHeader">
             <div className="ds-cardTitle">Внешние интеграции</div>

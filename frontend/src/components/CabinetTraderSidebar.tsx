@@ -17,6 +17,7 @@ import {
   Ticket,
   Lightbulb,
 } from 'lucide-react'
+import { useFeatureFlags } from '../contexts/FeatureFlagsContext'
 import { useCabinetMobile } from '../contexts/CabinetMobileContext'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 
@@ -33,6 +34,7 @@ interface Props {
 export default function CabinetTraderSidebar({ isAdmin: _isAdmin }: Props) {
   const [collapsed, setCollapsed] = useState(false)
   const location = useLocation()
+  const { marketplace_oauth: mpOAuth } = useFeatureFlags()
   const mobile = useCabinetMobile()
   const isMobile = useMediaQuery('(max-width: 767px)')
   const isOverlay = isMobile && !!mobile
@@ -45,8 +47,8 @@ export default function CabinetTraderSidebar({ isAdmin: _isAdmin }: Props) {
     { to: '/cabinet/trader/markups', label: 'Наценки', icon: <Percent size={20} /> },
     { to: '/cabinet/trader/import', label: 'Импорт', icon: <Upload size={20} /> },
     { to: '/cabinet/trader/export', label: 'Выгрузка Excel', icon: <Download size={20} /> },
-    { to: '/cabinet/trader/sync', label: 'Синхронизация с площадками', icon: <RefreshCw size={20} /> },
-    { to: '/cabinet/integrations', label: 'Интеграции', icon: <Key size={20} /> },
+    ...(mpOAuth ? [{ to: '/cabinet/trader/sync', label: 'Синхронизация с площадками', icon: <RefreshCw size={20} /> }] : []),
+    { to: mpOAuth ? '/cabinet/integrations?tab=oauth' : '/cabinet/integrations?tab=api', label: 'Интеграции', icon: <Key size={20} /> },
   ]
 
   const helpItems = [

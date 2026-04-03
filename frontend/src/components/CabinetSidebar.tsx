@@ -18,6 +18,7 @@ import {
   X,
   Monitor,
 } from 'lucide-react'
+import { useFeatureFlags } from '../contexts/FeatureFlagsContext'
 import { useCabinetMobile } from '../contexts/CabinetMobileContext'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 
@@ -36,6 +37,7 @@ interface Props {
 export default function CabinetSidebar({ isAdmin, isSuperAdmin }: Props) {
   const [collapsed, setCollapsed] = useState(false)
   const location = useLocation()
+  const { marketplace_oauth: mpOAuth } = useFeatureFlags()
   const mobile = useCabinetMobile()
   const isMobile = useMediaQuery('(max-width: 767px)')
   const isOverlay = isMobile && !!mobile
@@ -54,7 +56,7 @@ export default function CabinetSidebar({ isAdmin, isSuperAdmin }: Props) {
   ]
 
   const operationsNav: NavItem[] = [
-    { to: '/cabinet/integrations?tab=oauth', label: 'Интеграции', icon: <Key size={20} />, group: 'main' },
+    { to: mpOAuth ? '/cabinet/integrations?tab=oauth' : '/cabinet/integrations?tab=api', label: 'Интеграции', icon: <Key size={20} />, group: 'main' },
     { to: '/cabinet/integrations?tab=webhooks', label: 'Sync-политики', icon: <BarChart3 size={20} />, group: 'main' },
     { to: '/cabinet/audit-log', label: 'Журнал аудита', icon: <FileText size={20} />, group: 'main' },
     { to: '/cabinet/integrations?tab=api', label: 'Безопасность', icon: <Settings size={20} />, group: 'main' },

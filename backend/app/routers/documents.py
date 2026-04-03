@@ -29,6 +29,11 @@ from app.models.import_job import ImportJob
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
+
+def _cabinet_payment_subscription_url() -> str | None:
+    """Ссылка на оплату в кабинете — только если включена ЮKassa."""
+    return "/cabinet/payment" if get_settings().feature_yookassa else None
+
 # Разрешённые MIME для загрузки
 ALLOWED_MIMES = {
     "application/pdf",
@@ -1461,7 +1466,7 @@ async def import_nomenclature(
                 supplier_id_val = sid
         except (ValueError, TypeError):
             pass
-    SUBSCRIPTION_URL = "/cabinet/payment"
+    sub_url = _cabinet_payment_subscription_url()
 
     job = ImportJob(
         company_id=company_id,
@@ -1499,7 +1504,7 @@ async def import_nomenclature(
         "message": msg,
         "limit_reached": limit_reached,
         "limit_message": limit_message if limit_reached else None,
-        "subscription_url": SUBSCRIPTION_URL if limit_reached else None,
+        "subscription_url": sub_url if limit_reached else None,
     }
 
 
@@ -1556,7 +1561,7 @@ async def import_supplies(
     limit_reached_nomenclature = False
     limit_reached_manufacturers = False
     limit_message: str | None = None
-    SUBSCRIPTION_URL = "/cabinet/payment"
+    sub_url = _cabinet_payment_subscription_url()
     for uf in files:
         content = await uf.read()
         mime = uf.content_type or "application/octet-stream"
@@ -1685,7 +1690,7 @@ async def import_supplies(
         "supplies": created_supplies,
         "limit_reached": limit_reached,
         "limit_message": limit_message if limit_reached else None,
-        "subscription_url": SUBSCRIPTION_URL if limit_reached else None,
+        "subscription_url": sub_url if limit_reached else None,
     }
 
 

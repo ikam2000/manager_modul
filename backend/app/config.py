@@ -36,6 +36,11 @@ class Settings(BaseSettings):
     dadata_api_key: str = ""
     dadata_secret: str = ""
 
+    # Функциональные флаги. По умолчанию true — совместимость с существующим продакшеном.
+    # Для поставки без маркетплейсов/ЮKassa: false (см. transfer.env.example).
+    feature_marketplace_oauth: bool = True
+    feature_yookassa: bool = True
+
     # ЮKassa
     yookassa_shop_id: str = ""
     yookassa_secret_key: str = ""

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Upload, Image as ImageIcon } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
+import { useFeatureFlags } from '../../contexts/FeatureFlagsContext'
 
 const REQUISITES_LABELS: Record<string, string> = {
   name: 'Наименование',
@@ -21,6 +22,7 @@ const REQUISITES_LABELS: Record<string, string> = {
 }
 
 export default function CabinetSettings() {
+  const { yookassa } = useFeatureFlags()
   const { user, refresh } = useAuth()
   const [tab, setTab] = useState<'profile' | 'company' | 'subscription' | 'payments'>('profile')
   const [oldPassword, setOldPassword] = useState('')
@@ -262,7 +264,7 @@ export default function CabinetSettings() {
     { id: 'profile' as const, label: 'Профиль' },
     { id: 'company' as const, label: 'Компания и реквизиты' },
     { id: 'subscription' as const, label: 'Подписка' },
-    { id: 'payments' as const, label: 'Счета и оплаты' },
+    ...(yookassa ? [{ id: 'payments' as const, label: 'Счета и оплаты' }] : []),
   ]
 
   return (
@@ -533,7 +535,9 @@ export default function CabinetSettings() {
               </div>
             )
           })()}
-          <Link to="/cabinet/payment" style={{ display: 'inline-flex', padding: '12px 24px', background: 'var(--accent)', color: '#fff', borderRadius: 8, fontWeight: 600, textDecoration: 'none', fontSize: 14 }}>Продлить подписку</Link>
+          {yookassa && (
+            <Link to="/cabinet/payment" style={{ display: 'inline-flex', padding: '12px 24px', background: 'var(--accent)', color: '#fff', borderRadius: 8, fontWeight: 600, textDecoration: 'none', fontSize: 14 }}>Продлить подписку</Link>
+          )}
         </div>
       )}
 
